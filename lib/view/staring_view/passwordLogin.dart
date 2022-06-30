@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_deramland/tool/headfigure.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../tool/InputBox.dart';
-import '../../tool/gradientButtons.dart';
+import '../../tool/ButtonCollection.dart';
 class PasswordLogin extends StatefulWidget {
   const PasswordLogin({Key? key}) : super(key: key);
 
@@ -17,43 +18,54 @@ class _PasswordLoginState extends State<PasswordLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-          children: [
-            Expanded(
-              child: Container(
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('assets/images/log/background.png')
-                    )),
-                child: Form(
+        body: Container(
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/images/log/background.png')
+              )),
+          child: ListView(
+            children: [
+              Form(
                   key: _formKey,
                   child: Column(
                     children: [
-                      const SizedBox(height: 40),
-                      Image.asset('assets/images/log/3d图.png', width: 180.w),
-                      Text('欢迎来到DreamLand', style: TextStyle(fontSize: 30.sp, color: Colors.white)),
-                      const Text('发现有趣的商品', style: TextStyle(color: Colors.white)),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 20),
-                        child: PhoneInputBox(),
+                      headFigure(),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: phoneInputBox(
+                          phoneSelectBox:Theme(
+                            data: Theme.of(context).copyWith(
+                              canvasColor: Colors.black45,
+                            ),
+                            child: DropdownButton(
+                              value: dropdownValue,
+                              icon: Image.asset('assets/images/log/drop-down arrow.png',height: 10.h,width: 10.w,),
+                              style: const TextStyle(color: Colors.white),
+                              underline: Container(
+                                height: 0,
+                                color: Colors.white,
+                              ),
+                              items: <String>['One', '+86', 'Free', 'Four']
+                                  .map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  dropdownValue = newValue!;
+                                });
+                              },
+
+                            ),
+                          ),),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
-                        child: SizedBox(
-                          width: 310.w,
-                          height: 31.h,
-                          child: TextFormField(
-                            keyboardType: TextInputType.emailAddress,
-                            decoration: const InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.white
-                                    )
-                                )
-                            ),
-                          ),
-                        ),
+                        child: inputBox('请输入密码',Colors.white,Colors.white),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
@@ -99,26 +111,13 @@ class _PasswordLoginState extends State<PasswordLogin> {
                             )
                           ],
                         ),
-                      Container(
-                        color: const Color(0xFF0F122A),
-                        height: 130.h,
-                        width: double.infinity,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text('换个账号',style:TextStyle(color: Colors.white)),
-                            Text('|',style:TextStyle(color: Colors.white)),
-                            Text('注册',style:TextStyle(color: Colors.white)),
-                          ],
-                        ),
-                      )
+                      underButton(context),
                     ],
                   ),
                 ),
-              ),
-            ),
 
-          ],
+            ],
+          ),
         )
     );
   }

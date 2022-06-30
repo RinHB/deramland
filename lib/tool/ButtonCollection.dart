@@ -1,7 +1,6 @@
-// 渐变色按钮
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+// 渐变色按钮
 Widget gradientButtons(String text,Color color,Color colors,VoidCallback voidCallback) {
   return Container(
     margin: const EdgeInsets.fromLTRB(30,35, 30, 0),
