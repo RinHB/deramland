@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_deramland/tool/headfigure.dart';
+import 'package:flutter_deramland/tool/AccordingTheInformation.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../tool/InputBox.dart';
@@ -25,6 +25,7 @@ class _PasswordLoginState extends State<PasswordLogin> {
                   image: AssetImage('assets/images/log/background.png')
               )),
           child: ListView(
+            physics: const ClampingScrollPhysics(),
             children: [
               Form(
                   key: _formKey,

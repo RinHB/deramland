@@ -3,7 +3,7 @@ import '../../tool/InputBox.dart';
 import '../../tool/ButtonCollection.dart';
 import 'package:flutter/material.dart';
 
-import '../../tool/headfigure.dart';
+import '../../tool/AccordingTheInformation.dart';
 import 'inputVerificationCode.dart';
 
 class VerificationCodeLogin extends StatefulWidget {
@@ -35,6 +35,7 @@ class _VerificationCodeLoginState extends State<VerificationCodeLogin> {
               fit: BoxFit.cover,
               image: AssetImage('assets/images/log/background.png'))),
       child: ListView(
+        physics: const ClampingScrollPhysics(),
         children: [
           Form(
             key: _formKey,
@@ -107,6 +108,8 @@ class _VerificationCodeLoginState extends State<VerificationCodeLogin> {
                     } else {
                       debugPrint('未阅读协议');
                     }
+                  }else{
+                    debugPrint('输入手机号');
                   }
                 }),
                 Row(

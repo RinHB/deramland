@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../tool/Routers.dart';
 
-
 class AgreementView extends StatelessWidget {
   AgreementView({Key? key}) : super(key: key);
   Routers routers = Routers();

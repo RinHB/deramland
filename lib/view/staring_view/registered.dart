@@ -133,11 +133,13 @@ class _RegisteredState extends State<Registered> {
                         children: [
                           SizedBox(
                             width: 312.w,
-                            height: 35.h,
+                            height: 30.h,
                             child: TextFormField(
                               keyboardType: TextInputType.emailAddress,
                               style: TextStyle(color: Colors.white),
                               decoration: InputDecoration(
+                                hintText: '请输入验证码',
+                                hintStyle: TextStyle(color: Colors.white,fontSize: 14),
                                 enabledBorder: const UnderlineInputBorder(
                                     borderSide: BorderSide(
                                         color: Colors.white
@@ -158,7 +160,6 @@ class _RegisteredState extends State<Registered> {
                         ],
                       ),
                     ),
-                    inputBox('请输入验证码',Colors.white,Colors.white),
                     inputBox('请输入邮箱（用于藏品接收）',Colors.white,Colors.white),
                     inputBox('请输入登录密码',Colors.white,Colors.white),
                     inputBox('请确认登录密码',Colors.white,Colors.white),
