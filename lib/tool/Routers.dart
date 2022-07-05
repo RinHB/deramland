@@ -7,6 +7,7 @@ import '../view/PersonalHomePage_View/OrderDetailsPage.dart';
 import '../view/PersonalHomePage_View/PersonalInformationPage.dart';
 import '../view/PersonalHomePage_View/QrCodePage.dart';
 import '../view/PersonalHomePage_View/SwitchThemePage.dart';
+import '../view/PersonalHomePage_View/my_mean_page/blockchain_select_page.dart';
 import '../view/staring_view/VerificationCodeLogin.dart';
 import '../view/staring_view/emailLogin.dart';
 import '../view/staring_view/inputVerificationCode.dart';
@@ -27,6 +28,7 @@ class Routers{
     '/OrderDetailsPage':(context,{Object? args}) =>OrderDetailsPage(),
     '/CollectionRecordPage':(context,{Object? args}) =>const CollectionRecordPage(),
     '/CollectionDetailsPage':(context,{Object? args}) =>const CollectionDetailsPage(),
+    '/BlockChainSelectPage':(context,{Object? args}) =>const BlockChainSelectPage(),
   };
 
   //监听route，类似于拦截器原理

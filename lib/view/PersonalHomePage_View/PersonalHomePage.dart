@@ -104,7 +104,7 @@ class _PersonalHomePageState extends State<PersonalHomePage> {
                       personalHomePageButton(
                           '区块链信息查询',
                           (){
-
+                            Navigator.pushNamed(context, "/BlockChainSelectPage");
                           }
                       ),
                       const SizedBox(height: 25),
