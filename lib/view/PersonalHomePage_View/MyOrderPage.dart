@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deramland/view/PersonalHomePage_View/AllOrders.dart';
 import 'package:flutter_deramland/view/Tab/tabs.dart';
+
+import 'AlreadyCancelPage.dart';
+import 'AlreadyPaymentPage.dart';
+import 'WaitingForPaymentPage.dart';
 class MyOrderPage extends StatefulWidget {
   const MyOrderPage({Key? key}) : super(key: key);
 
@@ -18,9 +22,9 @@ class _MyOrderPageState extends State<MyOrderPage> with SingleTickerProviderStat
   ];
   List<Widget> tabController=[
     const AllOrders(),
-    Container(child: Text('待付款'),),
-    Container(child: Text('已付款'),),
-    Container(child: Text('已取消'),),
+    const WaitingForPaymentPage(),
+    const AlreadyPaymentPage(),
+    const AlreadyCancelPage(),
   ];
   @override
   void initState() {
@@ -28,7 +32,7 @@ class _MyOrderPageState extends State<MyOrderPage> with SingleTickerProviderStat
     super.initState();
     _tabController = TabController(
       length: tabs.length,
-      initialIndex: 1,
+      initialIndex: 0,
       vsync: this
     );
   }

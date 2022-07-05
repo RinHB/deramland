@@ -23,7 +23,7 @@ Widget personalHomeHeadFigure(String loginName,String phone,String image,VoidCal
         height: 70,
         child: IconButton(
           onPressed:voidCallback,
-          icon: Image.asset(image),
+          icon: ClipOval(child: Image.asset(image)),
         ),
       ),
       Column(
@@ -79,6 +79,394 @@ Widget switchThemeFigure(String imageName,GestureTapCallback onTap){
             image:  AssetImage(imageName),
             fit: BoxFit.cover
           )
+      ),
+    ),
+  );
+}
+
+//订单详细显示
+Widget orderDetailsFigure(String firstColumn,String secondColumn,{Color colors =Colors.white54,Color color =Colors.white}){
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text(firstColumn,style: TextStyle(color: color)),
+      Text(secondColumn,style: TextStyle(color: colors),maxLines: 2,),
+    ],
+  );
+}
+
+//已经支付订单详细显示
+Widget alreadyPaymentDetailsFigure(){
+  return Container(
+    color:const Color(0xff0F122A),
+    child: Center(
+      child: Column(
+        children: [
+          const SizedBox(height: 15),
+          Image.asset('assets/images/ParesonalHome/PayForSuccess.png',width: 100,height: 70),
+          const Center(child: Text('交易成功',style: TextStyle(color: Colors.white),)),
+          Padding(
+            padding: const EdgeInsets.only(top: 15,right: 15, left: 15),
+            child: Container(
+              height: 300.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                color: const Color(0xFF2B1A3D),
+              ),
+              child:Column(
+                children: [
+                  const SizedBox(height: 10),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(width: 10),
+                      Row(
+                        children: [
+                          Container(
+                            width: 90,
+                            height: 90,
+                            decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.all(Radius.circular(20)),
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage('assets/images/ParesonalHome/test.png')
+                                )
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          SizedBox(
+                            width: 150,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children:  [
+                                const Text('克鲁鲁·采佩西',style: TextStyle(color: Colors.white)),
+                                const SizedBox(height: 5),
+                                Container(
+                                  decoration: const BoxDecoration(
+                                      gradient: LinearGradient(colors: [Color(0xFFFEDDB6),Color(0xffFFE3C0),Color(0xffF5CC9A)]),
+                                      borderRadius: BorderRadius.all(Radius.circular(20))
+                                  ),
+                                  child: const Text(
+                                    '吸血鬼的上位始祖之一，为第三位始祖。吸血鬼第三都市桑古奈姆的支配者，日本吸血鬼的女王',
+                                    style: TextStyle(color: Colors.black),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                const Text(
+                                  '产地：日本',
+                                  style: TextStyle(color: Colors.white),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(15),
+                    child: Column(
+                      children: [
+                        orderDetailsFigure('实付款','59.90',colors: const Color(0xFFFF0860)),
+                        const SizedBox(height: 10),
+                        orderDetailsFigure('交易数量','1'),
+                        const SizedBox(height: 10),
+                        orderDetailsFigure('创建时间','2022-02-28  15:30:25'),
+                        const SizedBox(height: 10),
+                        orderDetailsFigure('付款信息','2022-02-28  15:31:01'),
+                        const SizedBox(height: 10),
+                        orderDetailsFigure('订单编号','298335568635323558686'),
+                        const SizedBox(height: 10),
+                        orderDetailsFigure('付款方式','支付宝'),
+                        const SizedBox(height: 10),
+                        orderDetailsFigure('支付流水号','29565656565555656249795'),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ) ,
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+//等待付款订单详细显示
+Widget waitingForPaymentFigure(){
+  return Container(
+    color:const Color(0xff0F122A),
+    child: Center(
+      child: Column(
+        children: [
+          const SizedBox(height: 15),
+          Image.asset('assets/images/ParesonalHome/time.png',width: 60,height: 70),
+          const Center(child: Text('等待付款',style: TextStyle(color: Colors.white),)),
+          Padding(
+            padding: const EdgeInsets.only(top: 15,right: 15, left: 15),
+            child: Container(
+              height: 230.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                color: const Color(0xFF2B1A3D),
+              ),
+              child:Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(width: 10),
+                      Row(
+                        children: [
+                          Container(
+                            width: 90,
+                            height: 90,
+                            decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.all(Radius.circular(20)),
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage('assets/images/ParesonalHome/test.png')
+                                )
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          SizedBox(
+                            width: 150,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children:  [
+                                const Text('克鲁鲁·采佩西',style: TextStyle(color: Colors.white)),
+                                const SizedBox(height: 5),
+                                Container(
+                                  decoration: const BoxDecoration(
+                                      gradient: LinearGradient(colors: [Color(0xFFFEDDB6),Color(0xffFFE3C0),Color(0xffF5CC9A)]),
+                                    borderRadius: BorderRadius.all(Radius.circular(20))
+                                  ),
+                                  child: const Text(
+                                    '吸血鬼的上位始祖之一，为第三位始祖。吸血鬼第三都市桑古奈姆的支配者，日本吸血鬼的女王',
+                                    style: TextStyle(color: Colors.black),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                const Text(
+                                  '产地：日本',
+                                  style: TextStyle(color: Colors.white),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(15),
+                    child: Column(
+                      children: [
+                        orderDetailsFigure('实付款','59.90',colors: const Color(0xFFFF0860)),
+                        const SizedBox(height: 10),
+                        orderDetailsFigure('交易数量','1'),
+                        const SizedBox(height: 10),
+                        orderDetailsFigure('创建时间','2022-02-28  15:30:25'),
+                        const SizedBox(height: 10),
+                        orderDetailsFigure('订单编号','298335568635323558686'),
+
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ) ,
+          ),
+          Expanded(
+              child: Container(
+                margin: const EdgeInsets.only(top: 250),
+                color: const Color(0xFF2B1A3D),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment:CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      margin:EdgeInsets.all(15),
+                      child: ElevatedButton(
+                        onPressed: (){},
+                        style: ButtonStyle(
+                            backgroundColor:MaterialStateColor.resolveWith((states) =>  Colors.transparent),
+                            shape: MaterialStateProperty.all(
+                                const StadiumBorder(
+                                    side: BorderSide(
+                                      //设置 界面效果
+                                        style: BorderStyle.solid,
+                                        color: Colors.white
+                                    )
+                                )
+                            )
+                        ),
+                        child: const Text('取消订单'),
+                      ),
+                    ),
+                    Container(
+                      margin:EdgeInsets.all(15),
+                      child: ElevatedButton(
+                          onPressed: (){},
+                          style:ButtonStyle(
+                              backgroundColor:MaterialStateColor.resolveWith((states) =>  Colors.pinkAccent),
+                              shape: MaterialStateProperty.all(
+                                  const StadiumBorder(
+                                      side: BorderSide(
+                                        //设置 界面效果
+                                        style: BorderStyle.solid,
+                                      )
+                                  )
+                              )
+                          ) ,
+                          child: const Text('继续付款')
+                      ),
+                    )
+                  ],
+                ),
+              )
+          )
+        ],
+      ),
+    ),
+  );
+}
+
+//取消付款订单详细显示
+Widget cancelForPaymentFigure(){
+  return Container(
+    color:const Color(0xff0F122A),
+    child: Center(
+      child: Column(
+        children: [
+          const SizedBox(height: 15),
+          Image.asset('assets/images/ParesonalHome/cancel.png',width: 60,height: 70),
+          const Center(child: Text('取消订单',style: TextStyle(color: Colors.white),)),
+          Padding(
+            padding: const EdgeInsets.only(top: 15,right: 15, left: 15),
+            child: Container(
+              height: 230.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                color: const Color(0xFF2B1A3D),
+              ),
+              child:Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(width: 10),
+                      Row(
+                        children: [
+                          Container(
+                            width: 90,
+                            height: 90,
+                            decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.all(Radius.circular(20)),
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage('assets/images/ParesonalHome/test.png')
+                                )
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          SizedBox(
+                            width: 150,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children:  [
+                                const Text('克鲁鲁·采佩西',style: TextStyle(color: Colors.white)),
+                                const SizedBox(height: 5),
+                                Container(
+                                  decoration: const BoxDecoration(
+                                      gradient: LinearGradient(colors: [Color(0xFFFEDDB6),Color(0xffFFE3C0),Color(0xffF5CC9A)]),
+                                      borderRadius: BorderRadius.all(Radius.circular(20))
+                                  ),
+                                  child: const Text(
+                                    '吸血鬼的上位始祖之一，为第三位始祖。吸血鬼第三都市桑古奈姆的支配者，日本吸血鬼的女王',
+                                    style: TextStyle(color: Colors.black),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                const Text(
+                                  '产地：日本',
+                                  style: TextStyle(color: Colors.white),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(15),
+                    child: Column(
+                      children: [
+                        orderDetailsFigure('实付款','59.90',colors: const Color(0xFFFF0860)),
+                        const SizedBox(height: 10),
+                        orderDetailsFigure('交易数量','1'),
+                        const SizedBox(height: 10),
+                        orderDetailsFigure('创建时间','2022-02-28  15:30:25'),
+                        const SizedBox(height: 10),
+                        orderDetailsFigure('订单编号','298335568635323558686'),
+
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ) ,
+          ),
+          Expanded(
+              child: Container(
+                margin: const EdgeInsets.only(top: 250),
+                color: const Color(0xFF2B1A3D),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment:CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      margin:EdgeInsets.all(15),
+                      child: ElevatedButton(
+                        onPressed: (){},
+                        style: ButtonStyle(
+                            backgroundColor:MaterialStateColor.resolveWith((states) =>  Colors.transparent),
+                            shape: MaterialStateProperty.all(
+                                const StadiumBorder(
+                                    side: BorderSide(
+                                      //设置 界面效果
+                                        style: BorderStyle.solid,
+                                        color: Colors.white
+                                    )
+                                )
+                            )
+                        ),
+                        child: const Text('删除订单'),
+                      ),
+                    ),
+
+                  ],
+                ),
+              )
+          )
+        ],
       ),
     ),
   );

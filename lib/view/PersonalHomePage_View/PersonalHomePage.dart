@@ -64,12 +64,17 @@ class _PersonalHomePageState extends State<PersonalHomePage> {
                        ],
                      ),
                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset('assets/images/ParesonalHome/Collection records.png',height: 45),
-                        const Text('藏品记录',style: TextStyle(color: Colors.white))
-                      ],
+                    InkWell(
+                      onTap: (){
+                        Navigator.pushNamed(context, '/CollectionRecordPage');
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset('assets/images/ParesonalHome/Collection records.png',height: 45),
+                          const Text('藏品记录',style: TextStyle(color: Colors.white))
+                        ],
+                      ),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,

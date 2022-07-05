@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../view/PersonalHomePage_View/CollectionDetailsPage.dart';
+import '../view/PersonalHomePage_View/CollectionRecordPage.dart';
 import '../view/PersonalHomePage_View/MyOrderPage.dart';
+import '../view/PersonalHomePage_View/OrderDetailsPage.dart';
 import '../view/PersonalHomePage_View/PersonalInformationPage.dart';
 import '../view/PersonalHomePage_View/QrCodePage.dart';
 import '../view/PersonalHomePage_View/SwitchThemePage.dart';
@@ -21,6 +24,9 @@ class Routers{
     '/QrCodePage':(context,{Object? args}) =>const QrCodePage(),
     '/SwitchThemePage':(context,{Object? args}) =>const SwitchThemePage(),
     '/MyOrderPage':(context,{Object? args}) =>const MyOrderPage(),
+    '/OrderDetailsPage':(context,{Object? args}) =>OrderDetailsPage(),
+    '/CollectionRecordPage':(context,{Object? args}) =>const CollectionRecordPage(),
+    '/CollectionDetailsPage':(context,{Object? args}) =>const CollectionDetailsPage(),
   };
 
   //监听route，类似于拦截器原理
