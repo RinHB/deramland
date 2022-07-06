@@ -10,7 +10,7 @@ class MyOrderPage extends StatefulWidget {
   State<MyOrderPage> createState() => _MyOrderPageState();
 }
 
-class _MyOrderPageState extends State<MyOrderPage> with SingleTickerProviderStateMixin {
+class _MyOrderPageState extends State<MyOrderPage> with SingleTickerProviderStateMixin{
   late TabController _tabController;
   List<Tab> tabs = [
     const Tab(text: '全部'),
