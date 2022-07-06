@@ -76,12 +76,17 @@ class _PersonalHomePageState extends State<PersonalHomePage> {
                         ],
                       ),
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset('assets/images/ParesonalHome/通知消息.png',height: 45),
-                        const Text('通知消息',style: TextStyle(color: Colors.white))
-                      ],
+                    InkWell(
+                      onTap: (){
+                        Navigator.pushNamed(context, '/NotificationMessagePage');
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset('assets/images/ParesonalHome/通知消息.png',height: 45),
+                          const Text('通知消息',style: TextStyle(color: Colors.white))
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 0,)
                   ],

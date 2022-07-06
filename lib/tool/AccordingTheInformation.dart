@@ -39,6 +39,16 @@ Widget personalHomeHeadFigure(String loginName,String phone,String image,VoidCal
   );
 }
 
+//分割线显示
+Widget splitLineFigure(){
+  return  Container(
+    margin: const EdgeInsets.only(right: 10,left: 10),
+    decoration: const BoxDecoration(
+        border:Border(bottom:BorderSide(width: 1,color: Color(0xffF0F0F0)) )
+    ),
+  );
+}
+
 //个人信息显示
 Widget personalInformationListFigure(String personalInformation,Widget according){
   return Column(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../tool/AccordingTheInformation.dart';
+import '../../../tool/AccordingTheInformation.dart';
 
 class CollectionRecordPage extends StatefulWidget {
   const CollectionRecordPage({Key? key}) : super(key: key);
@@ -87,13 +87,7 @@ class _CollectionRecordPageState extends State<CollectionRecordPage> {
 
                         ),
                         const SizedBox(height: 10),
-                        Container(
-                          margin: const EdgeInsets.only(right: 10,left: 10),
-                          decoration: const BoxDecoration(
-                              border:Border(bottom:BorderSide(width: 2,color: Color(0xffF0F0F0)) )
-                          ),
-                        ),
-
+                        splitLineFigure(),
                         Container(
                             margin: const EdgeInsets.all(10),
                             child: orderDetailsFigure('交易金额','59.90',color: Colors.white54,colors: Colors.white)

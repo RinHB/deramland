@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../view/PersonalHomePage_View/CollectionDetailsPage.dart';
-import '../view/PersonalHomePage_View/CollectionRecordPage.dart';
-import '../view/PersonalHomePage_View/MyOrderPage.dart';
-import '../view/PersonalHomePage_View/OrderDetailsPage.dart';
+import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionDetailsPage.dart';
+import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionRecordPage.dart';
+import '../view/PersonalHomePage_View/MyOrder_View/MyOrderPage.dart';
+import '../view/PersonalHomePage_View/MyOrder_View/OrderDetailsPage.dart';
+import '../view/PersonalHomePage_View/NotificationMessage_View/NotificationMessagePage.dart';
 import '../view/PersonalHomePage_View/PersonalInformationPage.dart';
 import '../view/PersonalHomePage_View/QrCodePage.dart';
 import '../view/PersonalHomePage_View/SwitchThemePage.dart';
@@ -27,6 +28,7 @@ class Routers{
     '/OrderDetailsPage':(context,{Object? args}) =>OrderDetailsPage(),
     '/CollectionRecordPage':(context,{Object? args}) =>const CollectionRecordPage(),
     '/CollectionDetailsPage':(context,{Object? args}) =>const CollectionDetailsPage(),
+    '/NotificationMessagePage':(context,{Object? args}) =>const NotificationMessagePage(),
   };
 
   //监听route，类似于拦截器原理

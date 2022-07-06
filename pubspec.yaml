@@ -80,6 +80,7 @@ flutter:
     - assets/images/log/
     - assets/images/tabs/
     - assets/images/ParesonalHome/
+    - assets/images/ParesonalHome/NotificationMessage/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

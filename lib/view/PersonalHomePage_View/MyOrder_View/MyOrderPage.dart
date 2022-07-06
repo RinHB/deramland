@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_deramland/view/PersonalHomePage_View/AllOrders.dart';
-import 'package:flutter_deramland/view/Tab/tabs.dart';
-
+import 'AllOrders.dart';
 import 'AlreadyCancelPage.dart';
-import 'AlreadyPaymentPage.dart';
 import 'WaitingForPaymentPage.dart';
+import 'AlreadyPaymentPage.dart';
 class MyOrderPage extends StatefulWidget {
   const MyOrderPage({Key? key}) : super(key: key);
 
