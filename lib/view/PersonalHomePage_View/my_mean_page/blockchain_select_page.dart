@@ -13,6 +13,7 @@ class BlockChainSelectPage extends StatefulWidget {
 class _BlockChainSelectPageState extends State<BlockChainSelectPage> {
 
   bool? showSelect=false;
+  TextEditingController? selectContentController=TextEditingController();
   back(){
     setState((){});
   }
@@ -57,15 +58,16 @@ class _BlockChainSelectPageState extends State<BlockChainSelectPage> {
                 Container(
                   margin: const EdgeInsets.only(bottom: 60.0),
                   color: const Color(0xff201735),
-                  child: const TextField(
+                  child:  TextField(
                     maxLines: 4,
-                    style: TextStyle(
+                    controller: selectContentController,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 16.0,
                       fontFamily: "PingFang SC",
                       fontWeight: FontWeight.w400,
                     ),
-                    decoration:InputDecoration(
+                    decoration:const InputDecoration(
                       hintStyle: TextStyle(
                         color: Colors.white,
                         fontSize: 16.0,
@@ -84,7 +86,7 @@ class _BlockChainSelectPageState extends State<BlockChainSelectPage> {
                         ImageUtil.getAssetsWidget("without"),
                          Container(
                            margin: const EdgeInsets.only(top: 20.0),
-                           child: const Text("未查询到对应的区块链信息",style: TextStyle(
+                           child:  const Text("未查询到对应的区块链信息",style: TextStyle(
                             color: Colors.white,
                             fontSize: 14.0,
                             fontFamily: "PingFang SC",

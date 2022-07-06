@@ -111,7 +111,7 @@ class _PersonalHomePageState extends State<PersonalHomePage> {
                       personalHomePageButton(
                           '账号与安全',
                               (){
-
+                            Navigator.pushNamed(context, "/BlockChainAccountInformationView");
                           }
                       ),
                       const SizedBox(height: 25),
