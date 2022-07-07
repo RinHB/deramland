@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deramland/tool/safesetstate.dart';
-
+import 'FocusPage.dart';
+import 'GiveALikePage.dart';
 import 'NoticePage.dart';
 
 class NotificationMessagePage extends StatefulWidget {
@@ -20,8 +21,8 @@ class _NotificationMessagePageState extends State<NotificationMessagePage>
   late TabController _tabController;
   List<Widget> tabController=[
      const NoticePage(),
-     Container(child: Text('2'),),
-     Container(child: Text('3'),),
+     const GiveALikePage(),
+     const FocusPage(),
      Container(child: Text('4'),),
   ];
   @override

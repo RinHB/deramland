@@ -158,9 +158,8 @@ Widget personalHomePageButton(String buttonName,GestureTapCallback tap){
       child: Row(
         children: [
           const SizedBox(
-            width: 20,
+            width: 10,
           ),
-          const SizedBox(width: 5),
           Expanded(
               child: Text(buttonName,
                   style: const TextStyle(color: Colors.white,fontSize: 15))),
