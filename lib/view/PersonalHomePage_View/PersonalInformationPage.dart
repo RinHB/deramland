@@ -10,6 +10,7 @@ class PersonalInformationPage extends StatefulWidget {
 }
 
 class _PersonalInformationPageState extends State<PersonalInformationPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

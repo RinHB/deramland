@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_deramland/view/PersonalHomePage_View/my_mean_page/blockchain_account_information_page.dart';
 
 import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionDetailsPage.dart';
 import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionRecordPage.dart';
@@ -8,6 +9,8 @@ import '../view/PersonalHomePage_View/NotificationMessage_View/NotificationMessa
 import '../view/PersonalHomePage_View/PersonalInformationPage.dart';
 import '../view/PersonalHomePage_View/QrCodePage.dart';
 import '../view/PersonalHomePage_View/SwitchThemePage.dart';
+import '../view/PersonalHomePage_View/my_mean_page/blockchain_account/blockchain_account_information_view.dart';
+import '../view/PersonalHomePage_View/my_mean_page/blockchain_select_page.dart';
 import '../view/staring_view/VerificationCodeLogin.dart';
 import '../view/staring_view/emailLogin.dart';
 import '../view/staring_view/inputVerificationCode.dart';
@@ -29,6 +32,9 @@ class Routers{
     '/CollectionRecordPage':(context,{Object? args}) =>const CollectionRecordPage(),
     '/CollectionDetailsPage':(context,{Object? args}) =>const CollectionDetailsPage(),
     '/NotificationMessagePage':(context,{Object? args}) =>const NotificationMessagePage(),
+    '/BlockChainSelectPage':(context,{Object? args}) =>const BlockChainSelectPage(),
+    '/BlockchainAccountInformationPage':(context,{Object? args}) =>const BlockchainAccountInformationPage(),
+    '/BlockChainAccountInformationView':(context,{Object? args}) =>const BlockChainAccountInformationView(),
   };
 
   //监听route，类似于拦截器原理
