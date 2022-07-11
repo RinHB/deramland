@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deramland/tool/safesetstate.dart';
 import 'FocusPage.dart';
 import 'GiveALikePage.dart';
+import 'MessagePage.dart';
 import 'NoticePage.dart';
 
 class NotificationMessagePage extends StatefulWidget {
@@ -23,7 +24,7 @@ class _NotificationMessagePageState extends State<NotificationMessagePage>
      const NoticePage(),
      const GiveALikePage(),
      const FocusPage(),
-     Container(child: Text('4'),),
+     const MessagePage(),
   ];
   @override
   void initState() {
@@ -157,6 +158,7 @@ class _NotificationMessagePageState extends State<NotificationMessagePage>
         ),
       ),
       body:  TabBarView(
+        physics: const NeverScrollableScrollPhysics(),
         controller: _tabController,
         children: tabController,
       ),

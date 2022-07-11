@@ -481,3 +481,26 @@ Widget cancelForPaymentFigure(){
     ),
   );
 }
+
+Widget headPortraitStyle(String headPortrait,String showStyleImage){
+  return Stack(
+    children: [
+      ClipOval(
+        child: Image.asset(
+            headPortrait,
+            width: 70,
+            height: 70),
+      ),
+      Positioned(
+        top: 50,
+        left: 50,
+        child: ClipOval(
+          child: Image.asset(
+              showStyleImage,
+              width: 20,
+              height: 20),
+        ),
+      )
+    ],
+  );
+}

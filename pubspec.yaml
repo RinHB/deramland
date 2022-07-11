@@ -45,6 +45,8 @@ dependencies:
   #tab懒加载
   proste_indexed_stack: 0.2.4
 
+  #轮播图
+  carousel_slider: 4.1.1
 #  #网络连接状态
 #  connectivity_plus: 2.3.5
 
@@ -80,11 +82,9 @@ flutter:
     - assets/images/log/
     - assets/images/tabs/
     - assets/images/ParesonalHome/
-<<<<<<< HEAD
     - assets/images/ParesonalHome/NotificationMessage/
-=======
     - assets/images/n_ice_image_source/
->>>>>>> bc4a417b9c2baf2833af93d37bb3aa065840a8e3
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
