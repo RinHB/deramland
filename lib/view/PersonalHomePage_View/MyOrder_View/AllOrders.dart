@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'OrderDetailsPage.dart';
 import 'OrderDetailsPage.dart';
 class AllOrders extends StatefulWidget {
   const AllOrders({Key? key}) : super(key: key);

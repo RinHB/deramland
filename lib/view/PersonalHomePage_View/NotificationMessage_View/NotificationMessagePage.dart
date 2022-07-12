@@ -44,6 +44,7 @@ class _NotificationMessagePageState extends State<NotificationMessagePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: const Text('我的消息'),
         backgroundColor: const Color(0xff0F122A),
         bottom: TabBar(

@@ -44,6 +44,7 @@ class _MyOrderPageState extends State<MyOrderPage> with SingleTickerProviderStat
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: const Text('我的订单'),
         bottom: TabBar(
             indicatorColor: const Color(0xFFFEAA47),

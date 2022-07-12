@@ -47,6 +47,9 @@ dependencies:
 
   #轮播图
   carousel_slider: 4.1.1
+
+  #平滑指示器
+  smooth_page_indicator: 1.0.0+2
 #  #网络连接状态
 #  connectivity_plus: 2.3.5
 
@@ -84,7 +87,7 @@ flutter:
     - assets/images/ParesonalHome/
     - assets/images/ParesonalHome/NotificationMessage/
     - assets/images/n_ice_image_source/
-
+    - assets/images/homePage/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

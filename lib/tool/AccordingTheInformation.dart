@@ -6,7 +6,7 @@ Widget headFigure(){
   return Column(
     children: [
       const SizedBox(height: 40),
-      Image.asset('assets/images/log/3d图.png', width: 175.w),
+      Image.asset('assets/images/log/3DFigure.gif', width: 175.w),
       Text('欢迎来到DreamLand', style: TextStyle(fontSize: 25.sp, color: Colors.white)),
       const Text('发现有趣的商品', style: TextStyle(color: Colors.white)),
     ],
@@ -501,6 +501,39 @@ Widget headPortraitStyle(String headPortrait,String showStyleImage){
               height: 20),
         ),
       )
+    ],
+  );
+}
+
+//预售流程圆
+Widget processCircleFigure({Color color =Colors.white}){
+  return ClipOval(
+    child: Container(
+      width: 15,
+      height: 15,
+      color: color,
+    ),
+  );
+}
+
+//预售流程线
+Widget processLineFigure(){
+  return Container(
+    width: 60.w,
+    decoration: const BoxDecoration(
+        border: Border(
+            bottom: BorderSide(
+                width: 1, color: Color(0xffFF0860)))),
+  );
+}
+
+//预售提示文字
+Widget processPromptFigure(String makeAppointmentRemind,String releaseDate,String releaseTime){
+  return Column(
+    children: [
+      Text(makeAppointmentRemind,style: TextStyle(color: Colors.white,fontSize: 15.sp),),
+      Text(releaseDate,style: TextStyle(color: const Color(0xff77789C),fontSize: 15.sp)),
+      Text(releaseTime,style:const TextStyle(color:Color(0xff77789C)),),
     ],
   );
 }

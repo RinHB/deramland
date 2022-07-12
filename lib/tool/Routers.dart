@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deramland/view/PersonalHomePage_View/my_mean_page/blockchain_account_information_page.dart';
 
+import '../view/Home_View/BookingCommodity_View/BookingCommodityDetailedPage.dart';
 import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionDetailsPage.dart';
 import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionRecordPage.dart';
 import '../view/PersonalHomePage_View/MyOrder_View/MyOrderPage.dart';
@@ -35,6 +36,7 @@ class Routers{
     '/BlockChainSelectPage':(context,{Object? args}) =>const BlockChainSelectPage(),
     '/BlockchainAccountInformationPage':(context,{Object? args}) =>const BlockchainAccountInformationPage(),
     '/BlockChainAccountInformationView':(context,{Object? args}) =>const BlockChainAccountInformationView(),
+    '/BookingCommodityDetailedPage':(context,{Object? args}) =>const BookingCommodityDetailedPage(),
   };
 
   //监听route，类似于拦截器原理
