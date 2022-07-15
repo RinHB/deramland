@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deramland/view/PersonalHomePage_View/my_mean_page/blockchain_account_information_page.dart';
 
 import '../view/Home_View/BookingCommodity_View/BookingCommodityDetailedPage.dart';
+import '../view/PersonalHomePage_View/AccountsAndSecurity_View/AccountsAndSecurityPage.dart';
+import '../view/PersonalHomePage_View/AccountsAndSecurity_View/ChangePasswordPage.dart';
+import '../view/PersonalHomePage_View/AccountsAndSecurity_View/FaceVerificationPage.dart';
+import '../view/PersonalHomePage_View/AccountsAndSecurity_View/ModifyEmailPage.dart';
+import '../view/PersonalHomePage_View/AccountsAndSecurity_View/RealNameVerifiedPage.dart';
+import '../view/PersonalHomePage_View/AccountsAndSecurity_View/VerifyMobilePhoneNumberPage.dart';
+import '../view/PersonalHomePage_View/AccountsAndSecurity_View/VerifyPhoneInformationPage.dart';
 import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionDetailsPage.dart';
 import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionRecordPage.dart';
 import '../view/PersonalHomePage_View/MyOrder_View/MyOrderPage.dart';
@@ -22,7 +29,7 @@ class Routers{
   static final _routes={
     '/PasswordLogin': (context,{Object? args}) =>const PasswordLogin(),
     '/VerificationCodeLogin':(context,{Object? args}) =>const VerificationCodeLogin(),
-    '/InputVerificationCode':(context,{Object? args}) =>InputVerificationCode(),
+    '/InputVerificationCode':(context,{Object? args}) =>const InputVerificationCode(),
     '/Registered':(context,{Object? args}) =>const Registered(),
     '/EmailLogin':(context,{Object? args}) =>const EmailLogin(),
     '/PersonalInformationPage':(context,{Object? args}) =>const PersonalInformationPage(),
@@ -37,6 +44,13 @@ class Routers{
     '/BlockchainAccountInformationPage':(context,{Object? args}) =>const BlockchainAccountInformationPage(),
     '/BlockChainAccountInformationView':(context,{Object? args}) =>const BlockChainAccountInformationView(),
     '/BookingCommodityDetailedPage':(context,{Object? args}) =>const BookingCommodityDetailedPage(),
+    '/AccountsAndSecurityPage':(context,{Object? args}) =>const AccountsAndSecurityPage(),
+    '/VerifyMobilePhoneNumberPage':(context,{Object? args}) =>const VerifyMobilePhoneNumberPage(),
+    '/VerifyPhoneInformationPage':(context,{Object? args}) =>const VerifyPhoneInformationPage(),
+    '/ChangePasswordPage':(context,{Object? args}) =>const ChangePasswordPage(),
+    '/ModifyEmailPage':(context,{Object? args}) =>const ModifyEmailPage(),
+    '/RealNameVerifiedPage':(context,{Object? args}) =>const RealNameVerifiedPage(),
+    '/FaceVerificationPage':(context,{Object? args}) =>const FaceVerificationPage()
   };
 
   //监听route，类似于拦截器原理

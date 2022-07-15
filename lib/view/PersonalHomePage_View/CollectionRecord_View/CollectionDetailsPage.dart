@@ -260,6 +260,7 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
                                 child: Text(
                                     '44sxqsxq4xaxqxq611s61xsaxwvedgegerggere...',
                                     maxLines: 2,
+                                   overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       color: Colors.white
                                     ),

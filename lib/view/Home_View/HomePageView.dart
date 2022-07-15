@@ -48,14 +48,14 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150.h),
+        preferredSize: Size.fromHeight(170.h),
         child: AppBar(
           toolbarHeight: 155.h,
           backgroundColor: const Color(0xff0F122A),
           title: Stack(
             children: [
               SizedBox(
-                height: 110.h,
+                height: 130.h,
                 child: CarouselSlider.builder(
                   itemCount: assImages.length,
                   itemBuilder: (context,index,realIndex){

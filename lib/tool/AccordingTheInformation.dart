@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'ColorTable.dart';
+
 //头部显示
 Widget headFigure(){
   return Column(
@@ -50,7 +52,7 @@ Widget splitLineFigure(){
 }
 
 //个人信息显示
-Widget personalInformationListFigure(String personalInformation,Widget according){
+Widget personalInformationListFigure(String personalInformation,Widget according,{Color color=Colors.white}){
   return Column(
     children: [
       const SizedBox(height: 10),
@@ -66,9 +68,9 @@ Widget personalInformationListFigure(String personalInformation,Widget according
       ),
       const SizedBox(height: 10,),
       Container(
-        margin: const EdgeInsets.only(right: 20,left: 20),
-        decoration: const BoxDecoration(
-            border:Border(bottom:BorderSide(width: 1,color: Color(0xffe5e5e5)) )
+        margin: const EdgeInsets.only(right: 12,left: 20),
+        decoration:  BoxDecoration(
+            border:Border(bottom:BorderSide(width: 1,color: color) )
         ),
       ),
       const SizedBox(height: 10,),

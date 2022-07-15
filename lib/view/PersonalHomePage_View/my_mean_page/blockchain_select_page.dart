@@ -25,7 +25,7 @@ class _BlockChainSelectPageState extends State<BlockChainSelectPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Container(margin: const EdgeInsets.only(bottom: 60),child: gradientButtons(
           '查询', const Color(0xFFFF0860), const Color(0xFF333773), () {
-            showSelect=!showSelect!;
+            Navigator.pushNamed(context, "/BlockChainAccountInformationView");
             back();
       }
       ),),

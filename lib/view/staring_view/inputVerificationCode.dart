@@ -5,8 +5,8 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../tool/ButtonCollection.dart';
 
 class InputVerificationCode extends StatefulWidget {
-  String? phone;
-  InputVerificationCode({Key? key,this.phone}) : super(key: key);
+  final String? phone;
+  const InputVerificationCode({Key? key,this.phone}) : super(key: key);
   @override
   State<InputVerificationCode> createState() => _InputVerificationCodeState();
 }
@@ -64,9 +64,7 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
                   image: DecorationImage(
                       fit: BoxFit.cover,
                       image: AssetImage('assets/images/log/background.png'))),
-              child: Form(
-                key: _formKey,
-                child: Column(
+              child:Column(
                   children: [
                     const SizedBox(height: 40),
                      Row(
@@ -89,7 +87,6 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
                     const Text('发现有趣的商品',
                         style: TextStyle(color: Colors.white)),
                     const SizedBox(height: 20),
-
                     Container(
                       width: double.maxFinite,
                       margin: const EdgeInsets.only(left: 20,right: 20),
@@ -118,6 +115,8 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
                                   onCompleted: (v) {
                                     if(v=='12345'){
                                       debugPrint('验证成功');
+                                    }else{
+                                      debugPrint('验证失败');
                                     }
                                   },
                                   textStyle: const TextStyle(color: Colors.white),
@@ -142,7 +141,6 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
                 ),
               ),
             ),
-          ),
         ],
       ),
     );

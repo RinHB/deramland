@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_deramland/tool/ColorTable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 //输入框
 Widget inputBox(String hint,Color colors,Color color,{TextEditingController? phoneInput}){
@@ -12,6 +13,7 @@ Widget inputBox(String hint,Color colors,Color color,{TextEditingController? pho
           width: 312.w,
           height: 35.h,
           child: TextFormField(
+            controller: phoneInput,
             keyboardType: TextInputType.emailAddress,
             style:  TextStyle(color: colors),
             decoration: InputDecoration(
@@ -50,6 +52,38 @@ Widget phoneInputBox({Widget? phoneSelectBox,TextEditingController? phoneInput})
                   )
               ),
               prefixIcon:phoneSelectBox
+            ),
+          )
+      ),
+      const SizedBox(
+        height: 20,
+      ),
+    ],
+  );
+}
+
+//修改密码输入框
+Widget changePasswordInputBox(String hint,{Widget? phoneSelectBox,TextEditingController? phoneInput,bool textVisible=false}){
+  return Row(
+    children: [
+      SizedBox(
+          width: 310.w,
+          height: 26.h,
+          child: TextFormField(
+            controller: phoneInput,
+            obscureText: textVisible,
+            style: const TextStyle(color: Colors.white),
+            keyboardType: TextInputType.emailAddress,
+            decoration:  InputDecoration(
+                hintText: hint,
+                hintStyle: TextStyle(color: ColorTable.tipColor,fontSize: 15.sp),
+                enabledBorder:  UnderlineInputBorder(
+                    borderSide: BorderSide(
+                        color: ColorTable.tipColor
+                    )
+                ),
+                prefixIcon:phoneSelectBox,
+
             ),
           )
       ),
