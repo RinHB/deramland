@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'ColorTable.dart';
-
 //头部显示
 Widget headFigure(){
   return Column(
@@ -16,7 +14,7 @@ Widget headFigure(){
 }
 
 //个人主页头像显示
-Widget personalHomeHeadFigure(String loginName,String phone,String image,VoidCallback voidCallback){
+Widget personalHomeHeadFigure(String loginName,String phone,String image,VoidCallback voidCallback,bool state,{VoidCallback? qrCodeBusinessCard}){
   return Row(
     children: [
       const SizedBox(width: 20),
@@ -28,14 +26,27 @@ Widget personalHomeHeadFigure(String loginName,String phone,String image,VoidCal
           icon: ClipOval(child: Image.asset(image)),
         ),
       ),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children:  [
-          Text(loginName,style: const TextStyle(color: Colors.white,fontSize: 20)),
-          const SizedBox(height: 5),
-          Text(phone,style: const TextStyle(color: Colors.white))
-        ],
-      )
+      Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children:  [
+            Text(loginName,style: const TextStyle(color: Colors.white,fontSize: 20)),
+            const SizedBox(height: 5),
+            Text(phone,style: const TextStyle(color: Colors.white))
+          ],
+        ),
+      ),
+      state?InkWell(
+        onTap: qrCodeBusinessCard,
+        child: Row(
+          children: [
+            Image.asset('assets/images/ParesonalHome/QrCode.png',width: 20,height: 20,),
+            const SizedBox(width: 10),
+            Image.asset('assets/images/ParesonalHome/Component_8_Property1_right.png',width: 20,height: 20,),
+            const SizedBox(width: 20),
+          ],
+        ),
+      ):Container()
     ],
 
   );

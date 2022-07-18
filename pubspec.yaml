@@ -50,6 +50,10 @@ dependencies:
 
   #平滑指示器
   smooth_page_indicator: 1.0.0+2
+
+  #查找文件系统
+  path_provider: 2.0.11
+
 #  #网络连接状态
 #  connectivity_plus: 2.3.5
 

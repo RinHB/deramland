@@ -172,3 +172,30 @@ Widget personalHomePageButton(String buttonName,GestureTapCallback tap){
       )
   );
 }
+
+//设置按钮
+Widget mySettingsPageButton(String buttonName,GestureTapCallback tap,bool state){
+  return Container(
+    margin: EdgeInsets.all(10),
+    child: InkWell(
+        onTap:tap,
+        child: Row(
+          children: [
+            const SizedBox(
+              width: 10,
+            ),
+            Expanded(
+                child: Text(buttonName,
+                    style: const TextStyle(color: Colors.white,fontSize: 15))),
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child:state?Image.asset(
+                  'assets/images/ParesonalHome/setOn.png',width: 40.w):
+              Image.asset(
+                  'assets/images/ParesonalHome/setOff.png',width: 40.w,),
+            )
+          ],
+        )
+    ),
+  );
+}

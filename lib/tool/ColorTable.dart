@@ -6,4 +6,5 @@ class ColorTable{
   static Color white = const Color(0xffffffff);
   static Color boxBackGroundPurple = const Color(0xff2B1A3D);
   static Color tipColor = const Color(0xff77789C);
+  static Color bokeh = const Color(0x54000000);
 }

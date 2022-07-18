@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_deramland/tool/ColorTable.dart';
+import 'package:flutter_deramland/tool/safesetstate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../tool/ButtonCollection.dart';
@@ -12,6 +15,8 @@ class PersonalHomePage extends StatefulWidget {
 }
 
 class _PersonalHomePageState extends State<PersonalHomePage> {
+  String T = '44sxqsxq4xaxqxq611s61xsaxwcdcwd4645...';
+  bool loginStatus = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,17 +32,65 @@ class _PersonalHomePageState extends State<PersonalHomePage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    safeSetState(() => loginStatus = !loginStatus);
+                  },
                   icon: Image.asset(
                     'assets/images/ParesonalHome/scan.png',
                     height: 25,
                   ))
             ],
           ),
-          personalHomeHeadFigure('未登录', '登录后可查看你的数字藏品',
-              'assets/images/ParesonalHome/defaultavatar.png', () {
-            Navigator.pushNamed(context, '/PersonalInformationPage');
-          }),
+          loginStatus
+              ? personalHomeHeadFigure(
+                  '测试',
+                  '测试',
+                  'assets/images/ParesonalHome/test.png',
+                  () {
+                    Navigator.pushNamed(context, '/PersonalCollectionDisplayPage');
+                  },
+                  loginStatus,
+                  qrCodeBusinessCard: () {
+                    Navigator.pushNamed(context, '/QrCodePage');
+                  })
+              : personalHomeHeadFigure(
+                  '未登录', '登录后可查看你的数字藏品', 'assets/images/ParesonalHome/defaultavatar.png',
+                  () {
+                  debugPrint('未登录');
+                }, loginStatus),
+          loginStatus
+              ? Row(
+                  children: [
+                    SizedBox(width: 20),
+                    Text('区块链地址:', style: TextStyle(color: ColorTable.white)),
+                    SizedBox(
+                        width: 230.w,
+                        child: Text(
+                          T,
+                          style: TextStyle(color: ColorTable.white),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        )),
+                    Container(
+                      margin: const EdgeInsets.only(right: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Clipboard.setData(ClipboardData(text: T));
+                            },
+                            child: Image.asset(
+                                'assets/images/ParesonalHome/copy.png',
+                                width: 15,
+                                height: 15),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                )
+              : Container(),
           const SizedBox(height: 20),
           Container(
             width: 340.w,
@@ -124,9 +177,13 @@ class _PersonalHomePageState extends State<PersonalHomePage> {
                   const SizedBox(height: 25),
                   personalHomePageButton('我的客服', () {}),
                   const SizedBox(height: 25),
-                  personalHomePageButton('我的设置', () {}),
+                  personalHomePageButton('我的设置', () {
+                    Navigator.pushNamed(context, "/MySettingsPage");
+                  }),
                   const SizedBox(height: 25),
-                  personalHomePageButton('关于Dream  Land', () {}),
+                  personalHomePageButton('关于Dream  Land', () {
+                    Navigator.pushNamed(context, "/AboutDreamLandPage");
+                  }),
                   const SizedBox(height: 25),
                   personalHomePageButton('分享Dream  Land', () {}),
                 ],

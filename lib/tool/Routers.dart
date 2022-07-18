@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deramland/view/PersonalHomePage_View/my_mean_page/blockchain_account_information_page.dart';
 
 import '../view/Home_View/BookingCommodity_View/BookingCommodityDetailedPage.dart';
+import '../view/PersonalHomePage_View/AboutDreamLand_View/AboutDreamLandPage.dart';
 import '../view/PersonalHomePage_View/AccountsAndSecurity_View/AccountsAndSecurityPage.dart';
 import '../view/PersonalHomePage_View/AccountsAndSecurity_View/ChangePasswordPage.dart';
 import '../view/PersonalHomePage_View/AccountsAndSecurity_View/FaceVerificationPage.dart';
@@ -13,7 +14,12 @@ import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionDetailsPag
 import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionRecordPage.dart';
 import '../view/PersonalHomePage_View/MyOrder_View/MyOrderPage.dart';
 import '../view/PersonalHomePage_View/MyOrder_View/OrderDetailsPage.dart';
+import '../view/PersonalHomePage_View/MySettings_View/GeneralSettingsPage.dart';
+import '../view/PersonalHomePage_View/MySettings_View/MessageSettingsPage.dart';
+import '../view/PersonalHomePage_View/MySettings_View/MySettingsPage.dart';
+import '../view/PersonalHomePage_View/MySettings_View/PrivacySettingPage.dart';
 import '../view/PersonalHomePage_View/NotificationMessage_View/NotificationMessagePage.dart';
+import '../view/PersonalHomePage_View/PersonalCollectionDisplayPage.dart';
 import '../view/PersonalHomePage_View/PersonalInformationPage.dart';
 import '../view/PersonalHomePage_View/QrCodePage.dart';
 import '../view/PersonalHomePage_View/SwitchThemePage.dart';
@@ -50,7 +56,13 @@ class Routers{
     '/ChangePasswordPage':(context,{Object? args}) =>const ChangePasswordPage(),
     '/ModifyEmailPage':(context,{Object? args}) =>const ModifyEmailPage(),
     '/RealNameVerifiedPage':(context,{Object? args}) =>const RealNameVerifiedPage(),
-    '/FaceVerificationPage':(context,{Object? args}) =>const FaceVerificationPage()
+    '/FaceVerificationPage':(context,{Object? args}) =>const FaceVerificationPage(),
+    '/MySettingsPage':(context,{Object? args}) =>const MySettingsPage(),
+    '/MessageSettingsPage':(context,{Object? args}) =>const MessageSettingsPage(),
+    '/GeneralSettingsPage':(context,{Object? args}) =>const GeneralSettingsPage(),
+    '/PrivacySettingPage':(context,{Object? args}) =>const PrivacySettingPage(),
+    '/AboutDreamLandPage':(context,{Object? args}) =>const AboutDreamLandPage(),
+    '/PersonalCollectionDisplayPage':(context,{Object? args}) =>const PersonalCollectionDisplayPage(),
   };
 
   //监听route，类似于拦截器原理
