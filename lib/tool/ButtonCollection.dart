@@ -1,10 +1,40 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_deramland/tool/ColorTable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // 渐变色按钮
 Widget gradientButtons(String text,Color color,Color colors,VoidCallback voidCallback) {
   return Container(
     margin: const EdgeInsets.fromLTRB(30,35, 30, 0),
+    decoration: BoxDecoration(
+        gradient: LinearGradient(colors: [color,colors]), // 渐变色
+        borderRadius: BorderRadius.circular(25)),
+    child: ElevatedButton(
+      style: ButtonStyle(
+          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          elevation: MaterialStateProperty.all(0),
+          shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+          backgroundColor: MaterialStateProperty.all(Colors.transparent)),
+      onPressed: voidCallback,
+      child: Container(
+        alignment: Alignment.center,
+        height: 50.h,
+        child: Text(
+          text,
+          style: const TextStyle(color: Colors.white, fontSize: 20),
+        ),
+      ),
+    ),
+
+  );
+}
+
+// 无外边距渐变色按钮
+Widget gradientButton(String text,Color color,Color colors,VoidCallback voidCallback) {
+  return Container(
+    margin: const EdgeInsets.fromLTRB(30,0, 30, 0),
     decoration: BoxDecoration(
         gradient: LinearGradient(colors: [color,colors]), // 渐变色
         borderRadius: BorderRadius.circular(25)),
@@ -198,4 +228,83 @@ Widget mySettingsPageButton(String buttonName,GestureTapCallback tap,bool state)
         )
     ),
   );
+}
+
+//提示框
+Future tooltipButton(BuildContext context,{
+  String title='title',String content='content',
+  VoidCallback? onPressed,String sure='确定',Color color =Colors.white}){
+  return showCupertinoModalPopup(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: color,
+          buttonPadding: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10)
+          ),
+          title: Center(child: Text(title,style: TextStyle(
+            color: ColorTable.white,
+          ))),
+          content: Text(content,style: TextStyle(
+            color: ColorTable.white,
+          )),
+          actions: [
+            Flex(
+              direction:Axis.horizontal,
+              children: [
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(bottomRight: Radius.circular(10)),
+                    child: Container(
+                      decoration:  BoxDecoration(
+                        border: Border(
+                            right: BorderSide(
+                                color: ColorTable.tipColor,
+                                width: 1
+                            ),
+                            top:  BorderSide(
+                                color:ColorTable.tipColor,
+                                width: 1
+                            )
+                        ),
+                      ),
+                      child: TextButton(
+                        onPressed:onPressed,
+                        child: Text(sure,style: TextStyle(color: ColorTable.white),),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(10)),
+                      child: Container(
+                        decoration:  BoxDecoration(
+                          border: Border(
+                              top:BorderSide(
+                                  color: ColorTable.tipColor,
+                                  width: 1
+                              )
+                          ),
+                        ),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text('取消',
+                              style: TextStyle(
+                                color: Colors.white,
+                              )
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+              ],
+            )
+          ],
+        );
+      });
 }

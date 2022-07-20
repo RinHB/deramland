@@ -1,11 +1,11 @@
 import 'dart:io';
-
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
 class ClearCache{
   ///加载缓存
-  Future<void> loadCache() async {
+  Future<void> loadCache(bool state) async {
     try {
       Directory tempDir = await getTemporaryDirectory();
       double value = await _getTotalSizeOfFilesInDir(tempDir);
@@ -13,11 +13,13 @@ class ClearCache{
       //     //打印每个缓存文件的路径
       //   print(file.path);
       // });
+      String v= _renderSize(value.toDouble());
       if (kDebugMode) {
-        String v= _renderSize(value.toDouble());
         print('临时目录大小:$v');
       }
-
+      if(state && v!='0.00B'){
+        delDir(tempDir);
+      }
     } catch (err) {
       if (kDebugMode) {
         print('报错');
@@ -53,7 +55,7 @@ class ClearCache{
       Directory tempDir = await getTemporaryDirectory();
       //删除缓存目录
       await delDir(tempDir);
-      await loadCache();
+      await loadCache(true);
     } catch (e) {
       if (kDebugMode) {
         print(e);

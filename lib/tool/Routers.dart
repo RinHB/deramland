@@ -14,6 +14,7 @@ import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionDetailsPag
 import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionRecordPage.dart';
 import '../view/PersonalHomePage_View/MyOrder_View/MyOrderPage.dart';
 import '../view/PersonalHomePage_View/MyOrder_View/OrderDetailsPage.dart';
+import '../view/PersonalHomePage_View/MySettings_View/DestroyAccountPage.dart';
 import '../view/PersonalHomePage_View/MySettings_View/GeneralSettingsPage.dart';
 import '../view/PersonalHomePage_View/MySettings_View/MessageSettingsPage.dart';
 import '../view/PersonalHomePage_View/MySettings_View/MySettingsPage.dart';
@@ -63,6 +64,7 @@ class Routers{
     '/PrivacySettingPage':(context,{Object? args}) =>const PrivacySettingPage(),
     '/AboutDreamLandPage':(context,{Object? args}) =>const AboutDreamLandPage(),
     '/PersonalCollectionDisplayPage':(context,{Object? args}) =>const PersonalCollectionDisplayPage(),
+    '/DestroyAccountPage':(context,{Object? args}) =>const DestroyAccountPage(),
   };
 
   //监听route，类似于拦截器原理

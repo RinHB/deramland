@@ -6,7 +6,7 @@ Widget headFigure(){
   return Column(
     children: [
       const SizedBox(height: 40),
-      Image.asset('assets/images/log/3DFigure.gif', width: 175.w),
+      Image.asset('assets/images/log/test.gif', width: 175.w),
       Text('欢迎来到DreamLand', style: TextStyle(fontSize: 25.sp, color: Colors.white)),
       const Text('发现有趣的商品', style: TextStyle(color: Colors.white)),
     ],

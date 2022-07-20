@@ -41,7 +41,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
                               direction: Axis.horizontal,
                               children: [
                                 Text(
-                                  '去修改',
+                                  '',
                                   style: TextStyle(color: ColorTable.pink),
                                 ),
                                 const SizedBox(width: 10),
@@ -67,7 +67,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
                               direction: Axis.horizontal,
                               children: [
                                 Text(
-                                  '去修改',
+                                  '',
                                   style: TextStyle(color: ColorTable.pink),
                                 ),
                                 const SizedBox(width: 10),
@@ -93,7 +93,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
                               direction: Axis.horizontal,
                               children: [
                                 Text(
-                                  '去修改',
+                                  '',
                                   style: TextStyle(color: ColorTable.pink),
                                 ),
                                 const SizedBox(width: 10),
@@ -113,14 +113,14 @@ class _MySettingsPageState extends State<MySettingsPage> {
                           '注销账号',
                           InkWell(
                             onTap: () {
-
+                              Navigator.pushNamed(context, '/DestroyAccountPage');
                             },
                             child: Flex(
                               direction: Axis.horizontal,
                               children: [
                                 Text(
-                                  '去修改',
-                                  style: TextStyle(color: ColorTable.pink),
+                                  '注销后无法恢复，请谨慎操作',
+                                  style: TextStyle(color: ColorTable.tipColor),
                                 ),
                                 const SizedBox(width: 10),
                                 Image.asset(
