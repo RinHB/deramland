@@ -31,71 +31,70 @@ class _AlreadyPaymentPageState extends State<AlreadyPaymentPage> {
             Padding(
               padding: const EdgeInsets.only(top: 15,right: 15, left: 15),
               child: Container(
-                height: 100.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.0),
                   color: const Color(0xFF2B1A3D),
                 ),
-                child:InkWell(
-                  onTap:(){
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => OrderDetailsPage(
-                              index: 1,
-                            )));
-                  },
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 10),
-                      Row(
+                child:Column(
+                  children: [
+                    const SizedBox(height: 10),
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => OrderDetailsPage(
+                                  index: 4,
+                                )));
+                      },
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           const SizedBox(width: 10),
-                          Row(
-                            children: [
-                              Container(
-                                width: 90,
-                                height: 90,
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                                    image: DecorationImage(
-                                        fit: BoxFit.fill,
-                                        image: AssetImage('assets/images/ParesonalHome/test.png')
-                                    )
+                          Expanded(
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 90,
+                                  height: 90,
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                                      image: DecorationImage(
+                                          fit: BoxFit.fill,
+                                          image: AssetImage('assets/images/ParesonalHome/test.png')
+                                      )
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(width: 10),
-                              Container(
-                                margin: const EdgeInsets.only(bottom: 40),
-                                width: 100,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children:  const [
-                                    Text('克鲁鲁·采佩西',style: TextStyle(color: Colors.white)),
-                                    SizedBox(height: 5),
-                                    Text(
-                                      '吸血鬼的上位始祖之一，为第三位始祖。吸血鬼第三都市桑古奈姆的支配者，日本吸血鬼的女王',
-                                      style: TextStyle(color: Colors.white),
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                    )
-                                  ],
+                                const SizedBox(width: 10),
+                                Container(
+                                  margin: const EdgeInsets.only(bottom: 40),
+                                  width: 100,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children:  const [
+                                      Text('克鲁鲁·采佩西',style: TextStyle(color: Colors.white)),
+                                      SizedBox(height: 5),
+                                      Text(
+                                        '吸血鬼的上位始祖之一，为第三位始祖。吸血鬼第三都市桑古奈姆的支配者，日本吸血鬼的女王',
+                                        style: TextStyle(color: Colors.white),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                          const SizedBox(width: 30,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Container(
                                 margin: const EdgeInsets.only(bottom: 10),
-                                width: 100,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children:  const [
-                                    Text('交易成功',style: TextStyle(color: Color(0xFF2BCAA6))),
+                                    Text('取消交易',style: TextStyle(color: Color(0xFF77789C))),
                                     SizedBox(height: 35),
                                     Text(
                                       '实付款：19.90',
@@ -111,8 +110,30 @@ class _AlreadyPaymentPageState extends State<AlreadyPaymentPage> {
                         ],
 
                       ),
-                    ],
-                  ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        ElevatedButton(
+                          onPressed: (){},
+                          style: ButtonStyle(
+                              backgroundColor:MaterialStateColor.resolveWith((states) =>  Colors.transparent),
+                              shape: MaterialStateProperty.all(
+                                  const StadiumBorder(
+                                      side: BorderSide(
+                                        //设置 界面效果
+                                          style: BorderStyle.solid,
+                                          color: Colors.white
+                                      )
+                                  )
+                              )
+                          ),
+                          child: const Text('删除订单'),
+                        ),
+                        const SizedBox(width: 20,),
+                      ],
+                    )
+                  ],
                 ),
               ) ,
             ),

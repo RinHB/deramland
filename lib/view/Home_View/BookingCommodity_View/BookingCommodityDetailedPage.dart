@@ -14,6 +14,8 @@ class BookingCommodityDetailedPage extends StatefulWidget {
 
 class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedPage> {
   bool bookingStatus =false;
+  int appointmentProcess=1;
+  bool alipay=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,7 +137,6 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                   Container(
                     margin: const EdgeInsets.only(right: 10),
                     child: SizedBox(
-                      width: 70.w,
                       child: ElevatedButton(
                           onPressed: () {},
                           style: ButtonStyle(
@@ -154,7 +155,6 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
               ),
             ),
             Container(
-              height: 120.h,
               margin: const EdgeInsets.only(left: 15, right: 15),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -162,9 +162,8 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 10),
                   Container(
-                    margin: EdgeInsets.only(left: 10, bottom: 10),
+                    margin: EdgeInsets.only(left: 10.r,bottom: 10.r,top: 10.r),
                     child: Text(
                       '预约流程',
                       style: TextStyle(color: Colors.white, fontSize: 18.sp),
@@ -173,13 +172,13 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                   Row(
                     children: [
                       const SizedBox(width: 50),
-                      processCircleFigure(color: const Color(0xffFF0860)),
+                      appointmentProcess==1?processCircleFigure(color: const Color(0xffFF0860)):processCircleFigure(),
                       processLineFigure(),
-                      processCircleFigure(),
+                      appointmentProcess==2?processCircleFigure(color: const Color(0xffFF0860)):processCircleFigure(),
                       processLineFigure(),
-                      processCircleFigure(),
+                      appointmentProcess==3?processCircleFigure(color: const Color(0xffFF0860)):processCircleFigure(),
                       processLineFigure(),
-                      processCircleFigure(),
+                      appointmentProcess==4?processCircleFigure(color: const Color(0xffFF0860)):processCircleFigure(),
                     ],
                   ),
                   const SizedBox(height: 5),
@@ -191,7 +190,8 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                       processPromptFigure("盲盒抽签", "07-09", "14:00"),
                       processPromptFigure("开放购买", "07-09", "19:00"),
                     ],
-                  )
+                  ),
+                  const SizedBox(height: 5)
                 ],
               ),
             ),
@@ -202,7 +202,7 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   color: Color(0xff2B1A3D)),
               child: Container(
-                margin: EdgeInsets.only(top: 10),
+                margin: const EdgeInsets.only(top: 10),
                 child: Column(
                   children: [
                     Row(
@@ -260,14 +260,12 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
               ),
             ),
             Container(
-              height: 75.h,
               margin: const EdgeInsets.all(10),
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   color: Color(0xff2B1A3D)),
               child: Column(
                 children: [
-                  SizedBox(height: 5),
                   Container(
                       margin: const EdgeInsets.all(10),
                       child: orderDetailsFigure('创作者', '嘻嘻',
@@ -307,18 +305,22 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                    margin: EdgeInsets.only(left: 20),
+                    margin: const EdgeInsets.only(left: 20),
                     child: Text(
                       '¥19.9',
                       style:
-                          TextStyle(color: Color(0xffFF0860), fontSize: 20.sp),
+                          TextStyle(color: const Color(0xffFF0860), fontSize: 20.sp),
                     )),
                 bookingStatus?Container(
                   height: 35.h,
-                  width: 140.w,
                   margin: const EdgeInsets.only(right: 30),
-                  decoration: BoxDecoration(
-                      color: Color(0xff77789C),
+                  decoration:appointmentProcess==3 || appointmentProcess==4?BoxDecoration(
+                      gradient: const LinearGradient(colors: [
+                        Color(0xFFFF0860),
+                        Color(0xFF333773)
+                      ]), // 渐变色
+                      borderRadius: BorderRadius.circular(25)):BoxDecoration(
+                      color: const Color(0xff77789C),
                       borderRadius: BorderRadius.circular(25)),
                   child: ElevatedButton(
                     style: ButtonStyle(
@@ -333,11 +335,23 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                         MaterialStateProperty.all(
                             Colors.transparent)),
                     onPressed: () {
+                      if(appointmentProcess==3){
+                        defrayFigure(context, true);
+                      }else if(appointmentProcess==4){
 
+                      }
                     },
-                    child: Container(
+                    child:appointmentProcess==3?Container(
                       alignment: Alignment.center,
                       height: 40.h,
+                      child: Text(
+                        '盲盒抽签',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15.sp),
+                      ),
+                    ):
+                    Center(
                       child: Text(
                         '已设置预约提醒',
                         style: TextStyle(
@@ -347,9 +361,43 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                     ),
                   ),
                 ):
+                appointmentProcess==2?Container(
+                  height: 35.h,
+                  margin: const EdgeInsets.only(right: 30),
+                  decoration: BoxDecoration(
+                      color: const Color(0xff77789C),
+                      borderRadius: BorderRadius.circular(25)),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        overlayColor: MaterialStateProperty.all(
+                            Colors.transparent),
+                        elevation: MaterialStateProperty.all(0),
+                        shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                                borderRadius:
+                                BorderRadius.circular(25))),
+                        backgroundColor:
+                        MaterialStateProperty.all(
+                            Colors.transparent)),
+                    onPressed: () {
+                      safeSetState(() {
+
+                      });
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 40.h,
+                      child: Text(
+                        '预约结束',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15.sp),
+                      ),
+                    ),
+                  ),
+                ):
                 Container(
                   height: 35.h,
-                  width: 130.w,
                   margin: const EdgeInsets.only(right: 30),
                   decoration: BoxDecoration(
                       gradient: const LinearGradient(colors: [
@@ -374,9 +422,7 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                         bookingStatus=!bookingStatus;
                       });
                     },
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 40.h,
+                    child: Center(
                       child: Text(
                         '设置提醒预约',
                         style: TextStyle(

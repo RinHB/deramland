@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false, //去除Debug标识
-      home: const Tabs(),
+      home: AgreementView(),
       onGenerateRoute: _routers.getRoutes,
       theme: ThemeData(
           highlightColor: Colors.transparent,

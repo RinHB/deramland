@@ -43,9 +43,9 @@ class _CollectionPageState extends State<CollectionPage> with SingleTickerProvid
       appBar: AppBar(
         backgroundColor: ColorTable.deepPurple,
         elevation: 0,
-        toolbarHeight: 135.h,
+        toolbarHeight: 155.h,
         flexibleSpace: Container(
-          height:200.h,
+          height:220.h,
           width: double.maxFinite,
           decoration: const BoxDecoration(
             image: DecorationImage(image: AssetImage('assets/images/collection/collectiblesBackground.png'),fit: BoxFit.cover)
@@ -69,7 +69,6 @@ class _CollectionPageState extends State<CollectionPage> with SingleTickerProvid
                 Container(
                   margin: const EdgeInsets.only(left: 30),
                   width:140.w,
-                  height: 35.h,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(13),
                       gradient: const LinearGradient(colors: [ Color(0xffC9B1EE),Color(0xffF9D7F4),Color(0xffB0E9F8), Color(0xffBAB6F6)])
@@ -89,7 +88,7 @@ class _CollectionPageState extends State<CollectionPage> with SingleTickerProvid
         bottom:TabBar(
           indicator: const BoxDecoration(),
           tabs: tabs,
-          padding: const EdgeInsets.only(right: 150),
+          padding: EdgeInsets.only(right: 110.r),
           controller: _tabController,
           indicatorSize:TabBarIndicatorSize.label,
         ),

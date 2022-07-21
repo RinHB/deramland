@@ -23,7 +23,6 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
         builder: (BuildContext context) {
           //构建弹框中的内容
           return Container(
-            height: 350.h,
             decoration: const BoxDecoration(
               color: Color(0xFF201735),
               borderRadius: BorderRadius.only(
@@ -71,27 +70,29 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
                   children: [
                     const SizedBox(width: 10),
                     SizedBox(
-                      width: 50,
-                      height: 50,
+                      width: 50.w,
+                      height: 50.h,
                       child: ClipOval(
                           child: Image.asset(
                               'assets/images/ParesonalHome/test.png')),
                     ),
-                    const SizedBox(width: 10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text('克鲁鲁·采佩西向你推荐了数字展览',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 17)),
-                        SizedBox(height: 5),
-                        Text('《终结的炽天使》',
-                            style: TextStyle(color: Color(0xff77789C)))
-                      ],
+                     SizedBox(width: 10.w),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text('克鲁鲁·采佩西向你推荐了数字展览',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 17)),
+                          SizedBox(height: 5),
+                          Text('《终结的炽天使》',
+                              style: TextStyle(color: Color(0xff77789C)))
+                        ],
+                      ),
                     )
                   ],
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Container(
                   height: 80.h,
                   margin: const EdgeInsets.only(right: 10, left: 10),
@@ -101,7 +102,6 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
                           topLeft: Radius.circular(20),
                           bottomLeft: Radius.circular(20))),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         margin: const EdgeInsets.only(left: 10),
@@ -136,7 +136,7 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
                         ),
                       ),
                       Image.asset('assets/images/ParesonalHome/test.png',
-                          width: 100, height: 100),
+                          width: 76.w, height: 100.h),
                     ],
                   ),
                 )
@@ -268,6 +268,7 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
                                       child: Image.asset('assets/images/ParesonalHome/test.png',width: 50,height: 50,),
                                     ),
                                     Container(
+                                      width: 260.w,
                                       margin: EdgeInsets.only(left: 55.r,right: 20.r),
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -281,26 +282,32 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
                                       ),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(left: 320.r,top: 35.r),
-                                      child: Column(
+                                      margin: EdgeInsets.only(top: 35.r),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
                                         children: [
-                                          InkWell(
-                                            onTap: (){
-                                              setStateBottomSheet((){
-                                                giveALikeState=!giveALikeState;
-                                              });
-                                            },
-                                            child: giveALikeState
-                                                ? Image.asset(
-                                                'assets/images/ParesonalHome/NotificationMessage/giveALikeOn.png',
-                                                width: 20,
-                                                height: 20)
-                                                : Image.asset(
-                                                'assets/images/collection/giveALikeOff.png',
-                                                width: 20,
-                                                height: 20),
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                            children: [
+                                              InkWell(
+                                                onTap: (){
+                                                  setStateBottomSheet((){
+                                                    giveALikeState=!giveALikeState;
+                                                  });
+                                                },
+                                                child: giveALikeState
+                                                    ? Image.asset(
+                                                    'assets/images/ParesonalHome/NotificationMessage/giveALikeOn.png',
+                                                    width: 20,
+                                                    height: 20)
+                                                    : Image.asset(
+                                                    'assets/images/collection/giveALikeOff.png',
+                                                    width: 20,
+                                                    height: 20),
+                                              ),
+                                              const Text('1',style: TextStyle(color: Colors.white),)
+                                            ],
                                           ),
-                                          const Text('1',style: TextStyle(color: Colors.white),)
                                         ],
                                       ),
                                     ),
@@ -415,7 +422,6 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
               ),
               const SizedBox(height: 10),
               Container(
-                height: 120.h,
                 width: double.maxFinite,
                 margin: const EdgeInsets.only(left: 10, right: 10),
                 decoration: const BoxDecoration(
@@ -468,7 +474,8 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
                           ),
                         ],
                       ),
-                    )
+                    ),
+                    const SizedBox(height: 10),
                   ],
                 ),
               ),
@@ -500,24 +507,7 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
                               ],
                             ),
                           ),
-                          Container(
-                            margin: const EdgeInsets.only(right: 5),
-                            child: InkWell(
-                              onTap: () {},
-                              child: Flex(
-                                direction: Axis.horizontal,
-                                children: [
-                                  const Text('藏品详细',
-                                      style: TextStyle(color: Colors.white)),
-                                  Image.asset(
-                                    'assets/images/ParesonalHome/Component_8_Property1_right.png',
-                                    width: 15,
-                                    height: 15,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )
+
                         ],
                       ),
                       const SizedBox(height: 10),

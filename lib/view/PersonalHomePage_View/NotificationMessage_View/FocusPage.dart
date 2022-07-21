@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_deramland/tool/safesetstate.dart';
+
 class FocusPage extends StatefulWidget {
   const FocusPage({Key? key}) : super(key: key);
 
@@ -8,6 +9,7 @@ class FocusPage extends StatefulWidget {
 }
 
 class _FocusPageState extends State<FocusPage> {
+  bool focusPageStatus=false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,46 +22,64 @@ class _FocusPageState extends State<FocusPage> {
             child:Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ClipOval(
-                      child: Image.asset('assets/images/ParesonalHome/test.png',width: 50,height: 50),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(right: 60),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children:  const [
-                              Text('嘻嘻',style: TextStyle(color: Colors.white)),
-                              Text('关注了你',style: TextStyle(color: Colors.white)),
-                            ],
-                          ),
-                          const  Text('2022.06.12  15:30:20',style: TextStyle(color: Color(0xff77789C))),
-                        ],
+                InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/OthersHomepagePage');
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ClipOval(
+                        child: Image.asset('assets/images/ParesonalHome/test.png',width: 50,height: 50),
                       ),
-                    ),
-                    SizedBox(
-                      width: 70.w,
-                      child: ElevatedButton(
-                          onPressed: (){},
-                          style:ButtonStyle(
-                              backgroundColor:MaterialStateColor.resolveWith((states) =>  Colors.pinkAccent),
-                              shape: MaterialStateProperty.all(
-                                  const StadiumBorder(
-                                      side: BorderSide(
-                                        //设置 界面效果
-                                        style: BorderStyle.solid,
-                                      )
-                                  )
-                              )
-                          ) ,
-                          child: Text('+关注')
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children:  const [
+                                Text('嘻嘻',style: TextStyle(color: Colors.white)),
+                                Text('关注了你',style: TextStyle(color: Colors.white)),
+                              ],
+                            ),
+                            const  Text('2022.06.12  15:30:20',style: TextStyle(color: Color(0xff77789C))),
+                          ],
+                        ),
                       ),
-                    )
-                  ],
+                      SizedBox(
+                        child: ElevatedButton(
+                            onPressed: (){
+                              safeSetState(()=>focusPageStatus=!focusPageStatus);
+                            },
+                            style:focusPageStatus?ButtonStyle(
+                                backgroundColor:MaterialStateColor.resolveWith((states) =>  Colors.pinkAccent),
+                                shape: MaterialStateProperty.all(
+                                    const StadiumBorder(
+                                        side: BorderSide(
+                                          //设置 界面效果
+                                          style: BorderStyle.solid,
+                                        )
+                                    )
+                                )
+                            ):
+                            ButtonStyle(
+                                side:
+                                MaterialStateProperty.all(const BorderSide(color: Colors.grey, width: 1)),
+                                backgroundColor:MaterialStateColor.resolveWith((states) =>  Colors.transparent),
+                                shape: MaterialStateProperty.all(
+                                    const StadiumBorder(
+                                        side: BorderSide(
+                                          //设置 界面效果
+                                          style: BorderStyle.solid,
+                                        )
+                                    )
+                                )
+                            ),
+                            child: focusPageStatus?Text('+关注'):Text('已关注')
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),

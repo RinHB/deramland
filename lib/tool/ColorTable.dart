@@ -7,4 +7,5 @@ class ColorTable{
   static Color boxBackGroundPurple = const Color(0xff2B1A3D);
   static Color tipColor = const Color(0xff77789C);
   static Color bokeh = const Color(0x54000000);
+  static Color tooltipBackGroundColor = const Color(0xff21232F);
 }

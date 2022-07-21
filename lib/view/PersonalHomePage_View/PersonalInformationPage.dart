@@ -26,7 +26,6 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
             Center(
               child: Container(
                 width: 320.w,
-                height: 240.h,
                 decoration: BoxDecoration(
                   color: const Color(0xff2B1A3D),
                   borderRadius: BorderRadius.circular(15)

@@ -54,6 +54,8 @@ dependencies:
   #查找文件系统
   path_provider: 2.0.11
 
+  #http请求
+  dio: 4.0.6
 #  #网络连接状态
 #  connectivity_plus: 2.3.5
 

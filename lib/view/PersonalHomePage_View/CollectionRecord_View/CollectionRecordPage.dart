@@ -24,7 +24,6 @@ class _CollectionRecordPageState extends State<CollectionRecordPage> {
               Padding(
                 padding: const EdgeInsets.only(top: 15,right: 10, left: 10),
                 child: Container(
-                  height:170.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.0),
                     color: const Color(0xFF2B1A3D),
@@ -37,44 +36,45 @@ class _CollectionRecordPageState extends State<CollectionRecordPage> {
                       children: [
                         const SizedBox(height: 10),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const SizedBox(width: 10),
-                            Row(
-                              children: [
-                                Container(
-                                  width: 50,
-                                  height: 50,
-                                  decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                                      image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage('assets/images/ParesonalHome/test.png')
-                                      )
+                            Container(
+                              margin: EdgeInsets.only(left: 10.r),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 50,
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                                        image: DecorationImage(
+                                            fit: BoxFit.fill,
+                                            image: AssetImage('assets/images/ParesonalHome/test.png')
+                                        )
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(width: 10),
-                                SizedBox(
-                                  width: 179.w,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children:  const [
-                                      Text('克鲁鲁·采佩西',style: TextStyle(color: Colors.white)),
-                                      SizedBox(height: 5),
-                                      Text(
-                                        'AD57486 #05105 | 10000',
-                                        style: TextStyle(color: Colors.white),
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                      )
-                                    ],
+                                  const SizedBox(width: 10),
+                                  SizedBox(
+                                    width: 179.w,
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children:  const [
+                                        Text('克鲁鲁·采佩西',style: TextStyle(color: Colors.white)),
+                                        SizedBox(height: 5),
+                                        Text(
+                                          'AD57486 #05105 | 10000',
+                                          style: TextStyle(color: Colors.white),
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                            const SizedBox(width: 30,),
                             SizedBox(
-                                  width: 55.w,
+
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -109,7 +109,6 @@ class _CollectionRecordPageState extends State<CollectionRecordPage> {
               Padding(
                 padding:  const EdgeInsets.only(top: 15,right: 10, left: 10),
                 child: Container(
-                  height:220.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.0),
                     color: const Color(0xFF2B1A3D),
@@ -122,14 +121,14 @@ class _CollectionRecordPageState extends State<CollectionRecordPage> {
                       children: [
                         const SizedBox(height: 10),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const SizedBox(width: 10),
                             Row(
                               children: [
                                 Container(
                                   width: 50,
                                   height: 50,
+                                  margin: EdgeInsets.only(left: 10.r),
                                   decoration: const BoxDecoration(
                                       borderRadius: BorderRadius.all(Radius.circular(20)),
                                       image: DecorationImage(
@@ -157,9 +156,7 @@ class _CollectionRecordPageState extends State<CollectionRecordPage> {
                                 ),
                               ],
                             ),
-                            const SizedBox(width: 30,),
                             SizedBox(
-                              width: 55.w,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 mainAxisAlignment: MainAxisAlignment.start,

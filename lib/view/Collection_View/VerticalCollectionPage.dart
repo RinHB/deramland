@@ -40,7 +40,7 @@ class _VerticalCollectionPageState extends State<VerticalCollectionPage> {
                         children: [
                           Container(
                             width: 80.w,
-                            height: 40.h,
+                            height: 45.h,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 gradient: const LinearGradient(colors: [ Color(0xffC9B1EE),Color(0xffF9D7F4),Color(0xffB0E9F8), Color(0xffBAB6F6)])
@@ -55,9 +55,9 @@ class _VerticalCollectionPageState extends State<VerticalCollectionPage> {
                               ),
                               child: Column(
                                 children:  [
-                                  Text('元宇宙的奥秘',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 8.sp),),
-                                  Expanded(child: Container(width: double.maxFinite,color: Colors.black,child: Center(child: Text('元宇宙的奥秘',style: TextStyle(fontWeight: FontWeight.bold,color: ColorTable.white,fontSize: 9.sp),)))),
-                                  Text('贝吉塔行星',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 8.sp),)
+                                  Text('元宇宙的奥秘',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 7.5.sp),),
+                                  Expanded(child: Container(width: double.maxFinite,color: Colors.black,child: Center(child: Text('元宇宙的奥秘',style: TextStyle(fontWeight: FontWeight.bold,color: ColorTable.white,fontSize: 8.sp),)))),
+                                  Text('贝吉塔行星',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 7.5.sp),)
                                 ],
                               ),
                             ),
@@ -89,7 +89,7 @@ class _VerticalCollectionPageState extends State<VerticalCollectionPage> {
                         children: [
                           Container(
                             width: 80.w,
-                            height: 40.h,
+                            height: 45.h,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 gradient: const LinearGradient(colors: [ Color(0xffC9B1EE),Color(0xffF9D7F4),Color(0xffB0E9F8), Color(0xffBAB6F6)])
@@ -104,9 +104,9 @@ class _VerticalCollectionPageState extends State<VerticalCollectionPage> {
                               ),
                               child: Column(
                                 children:  [
-                                  Text('元宇宙的奥秘',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 8.sp),),
-                                  Expanded(child: Container(width: double.maxFinite,color: Colors.black,child: Center(child: Text('元宇宙的奥秘',style: TextStyle(fontWeight: FontWeight.bold,color: ColorTable.white,fontSize: 9.sp),)))),
-                                  Text('贝吉塔行星',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 8.sp),)
+                                  Text('元宇宙的奥秘',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 7.5.sp),),
+                                  Expanded(child: Container(width: double.maxFinite,color: Colors.black,child: Center(child: Text('元宇宙的奥秘',style: TextStyle(fontWeight: FontWeight.bold,color: ColorTable.white,fontSize: 8.sp),)))),
+                                  Text('贝吉塔行星',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 7.5.sp),)
                                 ],
                               ),
                             ),

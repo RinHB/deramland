@@ -93,8 +93,8 @@ class _BookingCommodityPageState extends State<BookingCommodityPage> {
                     ),
                     const SizedBox(width: 10),
                     Container(
-                      width: 70,
-                      height: 30,
+                      height: 25.h,
+                      width: 70.w,
                       decoration: BoxDecoration(
                           gradient: const LinearGradient(colors: [
                             Color(0xFFFF0860),
@@ -135,14 +135,22 @@ class _BookingCommodityPageState extends State<BookingCommodityPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      '7月28号',
-                      style: TextStyle(color: Colors.white, fontSize: 16.sp),
-                    ),
-                    SizedBox(height: 5.h),
-                    Text(
-                      '10:00',
-                      style: TextStyle(color: Colors.white, fontSize: 16.sp),
+                    Container(
+                      margin: EdgeInsets.only(left: 10.r,top: 5.r),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '7月28号',
+                            style: TextStyle(color: Colors.white, fontSize: 16.sp),
+                          ),
+                          SizedBox(height: 5.h),
+                          Text(
+                            '10:00',
+                            style: TextStyle(color: Colors.white, fontSize: 16.sp),
+                          ),
+                        ],
+                      ),
                     ),
                     Container(
                       margin: const EdgeInsets.all(15),
@@ -151,13 +159,13 @@ class _BookingCommodityPageState extends State<BookingCommodityPage> {
                         children: [
                           Image.asset(
                             'assets/images/ParesonalHome/test.png',
-                            height: 100.h,
+                            height: 110.h,
                             width: 100.w,
                             fit: BoxFit.cover,
                           ),
                           Container(
                             width: 200.w,
-                            height: 105.h,
+                            height: 112.h,
                             decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                     topRight: Radius.circular(20),
@@ -175,7 +183,7 @@ class _BookingCommodityPageState extends State<BookingCommodityPage> {
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 19.sp),
                                   ),
-                                  const SizedBox(height: 10),
+                                  SizedBox(height: 10.h),
                                   Row(
                                     children: [
                                       Container(
@@ -218,61 +226,62 @@ class _BookingCommodityPageState extends State<BookingCommodityPage> {
                                       )
                                     ],
                                   ),
-                                  const SizedBox(height: 15),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text('￥29.00',
-                                          style: TextStyle(
-                                              color: const Color(0xffFF0860),
-                                              fontSize: 20.sp)),
-                                      InkWell(
-                                        onTap: () {
-                                          Navigator.pushNamed(context, '/BookingCommodityDetailedPage');
-                                        },
-                                        child: makeAnAppointmentState ? Container(
-                                          height: 25.h,
-                                          width: 85.w,
-                                          decoration: BoxDecoration(
-                                              gradient: const LinearGradient(
-                                                  colors: [
-                                                    Color(0xFFFF0860),
-                                                    Color(0xFF333773)
-                                                  ]), // 渐变色
-                                              borderRadius: BorderRadius.circular(7)),
-                                          child: ElevatedButton(
-                                            style: ButtonStyle(
-                                                overlayColor: MaterialStateProperty.all(Colors.transparent),
-                                                elevation: MaterialStateProperty.all(0),
-                                                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
-                                                backgroundColor: MaterialStateProperty.all(Colors.transparent)),
-                                            onPressed: (){
-                                              safeSetState((){
-                                                safeSetState(()=>makeAnAppointmentState = !makeAnAppointmentState);
-                                              });},
-                                            child: Container(
-                                              alignment: Alignment.center,
-                                              child: const Text(
-                                                '我要预约',
-                                                style: TextStyle(color: Colors.white),
+                                  SizedBox(height: 15.h),
+                                  Expanded(
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text('￥29.00',
+                                            style: TextStyle(
+                                                color: const Color(0xffFF0860),
+                                                fontSize: 20.sp)),
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.pushNamed(context, '/BookingCommodityDetailedPage');
+                                          },
+                                          child: makeAnAppointmentState ? Container(
+                                            height: 25.h,
+                                            width: 95.w,
+                                            decoration: BoxDecoration(
+                                                gradient: const LinearGradient(
+                                                    colors: [
+                                                      Color(0xFFFF0860),
+                                                      Color(0xFF333773)
+                                                    ]), // 渐变色
+                                                borderRadius: BorderRadius.circular(7)),
+                                            child: ElevatedButton(
+                                              style: ButtonStyle(
+                                                  overlayColor: MaterialStateProperty.all(Colors.transparent),
+                                                  elevation: MaterialStateProperty.all(0),
+                                                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+                                                  backgroundColor: MaterialStateProperty.all(Colors.transparent)),
+                                              onPressed: (){
+                                                safeSetState((){
+                                                  safeSetState(()=>makeAnAppointmentState = !makeAnAppointmentState);
+                                                });},
+                                              child: const Center(
+                                                child: Text(
+                                                  '我要预约',
+                                                  style: TextStyle(color: Colors.white),
+                                                ),
                                               ),
                                             ),
+                                          ):
+                                          Container(
+                                            height: 25.h,
+                                            width: 95.w,
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xff77789C),
+                                              borderRadius: BorderRadius.circular(7),),
+                                            child: const Center(
+                                                child: Text(
+                                                  '已预约',
+                                                  style: TextStyle(color: Colors.white),
+                                                )),
                                           ),
-                                        ):
-                                        Container(
-                                          height: 25.h,
-                                          width: 85.w,
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xff77789C),
-                                            borderRadius: BorderRadius.circular(7),),
-                                          child: const Center(
-                                              child: Text(
-                                                '已预约',
-                                                style: TextStyle(color: Colors.white),
-                                              )),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
@@ -281,7 +290,6 @@ class _BookingCommodityPageState extends State<BookingCommodityPage> {
                         ],
                       ),
                     ),
-
                   ],
                 ),
               ),

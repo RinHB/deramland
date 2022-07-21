@@ -92,7 +92,7 @@ class _PersonalCollectionDisplayPageState extends State<PersonalCollectionDispla
                   children: [
                     Container(
                       width: double.maxFinite,
-                      height: 90.h,
+                      height: 100.h,
                       margin: const EdgeInsets.only(left: 20,right: 20),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
@@ -130,7 +130,7 @@ class _PersonalCollectionDisplayPageState extends State<PersonalCollectionDispla
                     ),
                     Container(
                       width: double.maxFinite,
-                      height: 90.h,
+                      height: 100.h,
                       margin: const EdgeInsets.only(left: 20,right: 20),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../tool/Routers.dart';
+import '../Tab/tabs.dart';
 
 class AgreementView extends StatelessWidget {
   AgreementView({Key? key}) : super(key: key);
@@ -45,10 +46,14 @@ class AgreementView extends StatelessWidget {
                   Expanded(
                     child: Container(
                       color:Colors.pinkAccent ,
+                      height: 55.h,
                       child: TextButton(
                         onPressed: ()  {
                           agreement();
-                          Navigator.popAndPushNamed(context, '/PasswordLogin');
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) =>  const Tabs()),
+                                  (route) => false);
                         },
                         child: const Text('我以阅读并同意',style: TextStyle(color: Colors.white),),
                       ),

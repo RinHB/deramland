@@ -3,7 +3,8 @@ import 'package:flutter_deramland/tool/ColorTable.dart';
 
 import '../../../tool/AccordingTheInformation.dart';
 class MySettingsPage extends StatefulWidget {
-  const MySettingsPage({Key? key}) : super(key: key);
+  final bool loginStatus;
+  const MySettingsPage({Key? key,required this.loginStatus}) : super(key: key);
 
   @override
   State<MySettingsPage> createState() => _MySettingsPageState();
@@ -11,6 +12,13 @@ class MySettingsPage extends StatefulWidget {
 
 class _MySettingsPageState extends State<MySettingsPage> {
   double insideBoxMargin = 4;
+  bool status=false;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    status = widget.loginStatus;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +37,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
                 ),
                 child: Column(
                   children: [
-                    Container(
+                    status?Container(
                       margin: EdgeInsets.only(top: insideBoxMargin),
                       child: personalInformationListFigure(
                           '消息通知',
@@ -54,7 +62,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
                           ),
                           color: ColorTable.tipColor
                       ),
-                    ),
+                    ):Container(),
                     Container(
                       margin: EdgeInsets.only(top: insideBoxMargin),
                       child: personalInformationListFigure(
@@ -107,7 +115,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
                           color: ColorTable.tipColor
                       ),
                     ),
-                    Container(
+                    status?Container(
                       margin: EdgeInsets.only(top: insideBoxMargin),
                       child: personalInformationListFigure(
                           '注销账号',
@@ -132,7 +140,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
                           ),
                           color: ColorTable.tipColor
                       ),
-                    ),
+                    ):Container(),
                     const SizedBox(height: 10)
                   ],
                 ),

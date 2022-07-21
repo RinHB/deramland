@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_deramland/view/Tab/tabs.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../tool/ButtonCollection.dart';
@@ -115,6 +116,10 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
                                   onCompleted: (v) {
                                     if(v=='12345'){
                                       debugPrint('验证成功');
+                                      Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(builder: (context) =>  const Tabs()),
+                                              (route) => false);
                                     }else{
                                       debugPrint('验证失败');
                                     }

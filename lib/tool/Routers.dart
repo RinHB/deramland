@@ -20,6 +20,7 @@ import '../view/PersonalHomePage_View/MySettings_View/MessageSettingsPage.dart';
 import '../view/PersonalHomePage_View/MySettings_View/MySettingsPage.dart';
 import '../view/PersonalHomePage_View/MySettings_View/PrivacySettingPage.dart';
 import '../view/PersonalHomePage_View/NotificationMessage_View/NotificationMessagePage.dart';
+import '../view/PersonalHomePage_View/OthersHomepage_View/OthersHomepagePage.dart';
 import '../view/PersonalHomePage_View/PersonalCollectionDisplayPage.dart';
 import '../view/PersonalHomePage_View/PersonalInformationPage.dart';
 import '../view/PersonalHomePage_View/QrCodePage.dart';
@@ -58,13 +59,13 @@ class Routers{
     '/ModifyEmailPage':(context,{Object? args}) =>const ModifyEmailPage(),
     '/RealNameVerifiedPage':(context,{Object? args}) =>const RealNameVerifiedPage(),
     '/FaceVerificationPage':(context,{Object? args}) =>const FaceVerificationPage(),
-    '/MySettingsPage':(context,{Object? args}) =>const MySettingsPage(),
     '/MessageSettingsPage':(context,{Object? args}) =>const MessageSettingsPage(),
     '/GeneralSettingsPage':(context,{Object? args}) =>const GeneralSettingsPage(),
     '/PrivacySettingPage':(context,{Object? args}) =>const PrivacySettingPage(),
     '/AboutDreamLandPage':(context,{Object? args}) =>const AboutDreamLandPage(),
     '/PersonalCollectionDisplayPage':(context,{Object? args}) =>const PersonalCollectionDisplayPage(),
     '/DestroyAccountPage':(context,{Object? args}) =>const DestroyAccountPage(),
+    '/OthersHomepagePage':(context,{Object? args}) =>const OthersHomepagePage(),
   };
 
   //监听route，类似于拦截器原理

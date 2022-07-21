@@ -28,7 +28,6 @@ class _WaitingForPaymentPageState extends State<WaitingForPaymentPage> {
             Padding(
               padding: const EdgeInsets.only(top: 15,right: 15, left: 15),
               child: Container(
-                height: 140.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.0),
                   color: const Color(0xFF2B1A3D),
@@ -50,46 +49,46 @@ class _WaitingForPaymentPageState extends State<WaitingForPaymentPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           const SizedBox(width: 10),
-                          Row(
-                            children: [
-                              Container(
-                                width: 90,
-                                height: 90,
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                                    image: DecorationImage(
-                                        fit: BoxFit.fill,
-                                        image: AssetImage('assets/images/ParesonalHome/test.png')
-                                    )
+                          Expanded(
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 90.w,
+                                  height: 90.h,
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                                      image: DecorationImage(
+                                          fit: BoxFit.fill,
+                                          image: AssetImage('assets/images/ParesonalHome/test.png')
+                                      )
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(width: 10),
-                              Container(
-                                margin: const EdgeInsets.only(bottom: 40),
-                                width: 100,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children:  const [
-                                    Text('克鲁鲁·采佩西',style: TextStyle(color: Colors.white)),
-                                    SizedBox(height: 5),
-                                    Text(
-                                      '吸血鬼的上位始祖之一，为第三位始祖。吸血鬼第三都市桑古奈姆的支配者，日本吸血鬼的女王',
-                                      style: TextStyle(color: Colors.white),
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                    )
-                                  ],
+                                const SizedBox(width: 10),
+                                Container(
+                                  margin: const EdgeInsets.only(bottom: 40),
+                                  width: 100,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children:  const [
+                                      Text('克鲁鲁·采佩西',style: TextStyle(color: Colors.white)),
+                                      SizedBox(height: 5),
+                                      Text(
+                                        '吸血鬼的上位始祖之一，为第三位始祖。吸血鬼第三都市桑古奈姆的支配者，日本吸血鬼的女王',
+                                        style: TextStyle(color: Colors.white),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                          const SizedBox(width: 30,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Container(
                                 margin: const EdgeInsets.only(bottom: 10),
-                                width: 100,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children:  const [
