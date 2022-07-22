@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 //头部显示
 Widget headFigure() {
   return Column(
@@ -274,7 +273,6 @@ Widget waitingForPaymentFigure() {
           Padding(
             padding: const EdgeInsets.only(top: 15, right: 15, left: 15),
             child: Container(
-              height: 230.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
                 color: const Color(0xFF2B1A3D),
@@ -357,45 +355,50 @@ Widget waitingForPaymentFigure() {
             ),
           ),
           Expanded(
-              child: Container(
-            margin: const EdgeInsets.only(top: 250),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    height: 60.h,
             color: const Color(0xFF2B1A3D),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Container(
-                  margin: EdgeInsets.all(15),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.transparent),
-                        shape: MaterialStateProperty.all(const StadiumBorder(
-                            side: BorderSide(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(15),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateColor.resolveWith(
+                                (states) => Colors.transparent),
+                            shape: MaterialStateProperty.all(const StadiumBorder(
+                                side: BorderSide(
+                                    //设置 界面效果
+                                    style: BorderStyle.solid,
+                                    color: Colors.white)))),
+                        child: const Text('取消订单'),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(15),
+                      child: ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateColor.resolveWith(
+                                  (states) => Colors.pinkAccent),
+                              shape: MaterialStateProperty.all(const StadiumBorder(
+                                  side: BorderSide(
                                 //设置 界面效果
                                 style: BorderStyle.solid,
-                                color: Colors.white)))),
-                    child: const Text('取消订单'),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(15),
-                  child: ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateColor.resolveWith(
-                              (states) => Colors.pinkAccent),
-                          shape: MaterialStateProperty.all(const StadiumBorder(
-                              side: BorderSide(
-                            //设置 界面效果
-                            style: BorderStyle.solid,
-                          )))),
-                      child: const Text('继续付款')),
-                )
-              ],
+                              )))),
+                          child: const Text('继续付款')),
+                    )
+                  ],
             ),
-          ))
+          ),
+                ],
+              ))
         ],
       ),
     ),
@@ -420,7 +423,6 @@ Widget cancelForPaymentFigure() {
           Padding(
             padding: const EdgeInsets.only(top: 15, right: 15, left: 15),
             child: Container(
-              height: 230.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
                 color: const Color(0xFF2B1A3D),
@@ -503,30 +505,36 @@ Widget cancelForPaymentFigure() {
             ),
           ),
           Expanded(
-              child: Container(
-            margin: const EdgeInsets.only(top: 250),
-            color: const Color(0xFF2B1A3D),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Container(
-                  margin: EdgeInsets.all(15),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.transparent),
-                        shape: MaterialStateProperty.all(const StadiumBorder(
-                            side: BorderSide(
-                                //设置 界面效果
-                                style: BorderStyle.solid,
-                                color: Colors.white)))),
-                    child: const Text('删除订单'),
-                  ),
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                height: 60.h,
+                color: const Color(0xFF2B1A3D),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(15),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateColor.resolveWith(
+                                (states) => Colors.transparent),
+                            shape:
+                                MaterialStateProperty.all(const StadiumBorder(
+                                    side: BorderSide(
+                                        //设置 界面效果
+                                        style: BorderStyle.solid,
+                                        color: Colors.white)))),
+                        child: const Text('删除订单'),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ))
         ],
       ),
@@ -644,8 +652,8 @@ Future defrayFigure(BuildContext context, bool luckyDrawState) {
             return AlertDialog(
                 backgroundColor: Colors.white,
                 elevation: 0,
-                shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -665,7 +673,7 @@ Future defrayFigure(BuildContext context, bool luckyDrawState) {
                   ],
                 ),
                 content: SizedBox(
-                  height: 110.h,
+                  height: 160.h,
                   child: Column(
                     children: [
                       Text('￥19.9',
@@ -681,22 +689,22 @@ Future defrayFigure(BuildContext context, bool luckyDrawState) {
                           const Expanded(child: Text('微信支付')),
                           IconButton(
                               onPressed: () {
-                                setState((){
-                                  if(weChat){
-                                    weChat=!weChat;
+                                setState(() {
+                                  if (weChat) {
+                                    weChat = !weChat;
                                   }
-                                  alipay=true;
+                                  alipay = true;
                                 });
                               },
-                              icon:weChat?
-                              Image.asset(
-                                  'assets/images/ParesonalHome/payCheckedOff.png',
-                                  width: 20,
-                                  height: 20):
-                              Image.asset(
-                                  'assets/images/ParesonalHome/payCheckedOn.png',
-                                  width: 20,
-                                  height: 20))
+                              icon: weChat
+                                  ? Image.asset(
+                                      'assets/images/ParesonalHome/payCheckedOff.png',
+                                      width: 20,
+                                      height: 20)
+                                  : Image.asset(
+                                      'assets/images/ParesonalHome/payCheckedOn.png',
+                                      width: 20,
+                                      height: 20))
                         ],
                       ),
                       Row(
@@ -708,24 +716,48 @@ Future defrayFigure(BuildContext context, bool luckyDrawState) {
                           ),
                           const Expanded(child: Text('支付宝支付')),
                           IconButton(
-                              onPressed:(){
-                                setState((){
-                                  if(alipay){
-                                    alipay =!alipay;
+                              onPressed: () {
+                                setState(() {
+                                  if (alipay) {
+                                    alipay = !alipay;
                                   }
-                                  weChat=true;
+                                  weChat = true;
                                 });
                               },
                               icon: alipay
                                   ? Image.asset(
-                                  'assets/images/ParesonalHome/payCheckedOff.png',
-                                  width: 20,
-                                  height: 20)
+                                      'assets/images/ParesonalHome/payCheckedOff.png',
+                                      width: 20,
+                                      height: 20)
                                   : Image.asset(
-                                  'assets/images/ParesonalHome/payCheckedOn.png',
-                                  width: 20,
-                                  height: 20))
+                                      'assets/images/ParesonalHome/payCheckedOn.png',
+                                      width: 20,
+                                      height: 20))
                         ],
+                      ),
+                      SizedBox(height: 10),
+                      SizedBox(
+                        height: 40.h,
+                        width: 170.w,
+                        child: ElevatedButton(
+                            style: ButtonStyle(
+                                side: MaterialStateProperty.all(
+                                    BorderSide(color: Colors.grey, width: 0)),
+                                backgroundColor: MaterialStateColor.resolveWith(
+                                    (states) => Color(0xff00C800)),
+                                shape: MaterialStateProperty.all(
+                                    const StadiumBorder(
+                                        side: BorderSide(
+                                  //设置 界面效果
+                                  style: BorderStyle.solid,
+                                )))),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              '确认支付',
+                              style: TextStyle(color: Colors.white),
+                            )),
                       )
                     ],
                   ),
@@ -736,8 +768,11 @@ Future defrayFigure(BuildContext context, bool luckyDrawState) {
 }
 
 //操作提示显示
-Future operationTipsFigure(BuildContext context,{Widget? title,Widget? content}){
-  Timer timer= Timer(const Duration(seconds: 1), () {Navigator.of(context).pop();});
+Future operationTipsFigure(BuildContext context,
+    {Widget? title, Widget? content}) {
+  Timer timer = Timer(const Duration(seconds: 1), () {
+    Navigator.of(context).pop();
+  });
   return showCupertinoModalPopup(
       context: context,
       builder: (BuildContext context) {
@@ -748,18 +783,19 @@ Future operationTipsFigure(BuildContext context,{Widget? title,Widget? content})
               child: SizedBox(
                 width: 240.w,
                 child: AlertDialog(
-                    backgroundColor: const Color(0xff21232F),
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    title: title,
+                  backgroundColor: const Color(0xff21232F),
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  title: title,
                 ),
               ),
             );
           },
         );
-      }).then((value){
-        if(timer.isActive){
-          timer.cancel();
-        }
+      }).then((value) {
+    if (timer.isActive) {
+      timer.cancel();
+    }
   });
 }

@@ -58,17 +58,7 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
                           ),
                         )
                     ),
-                    personalInformationListFigure(
-                        '主题封面',
-                        InkWell(
-                          onTap: (){
-                            Navigator.pushNamed(context, '/SwitchThemePage');
-                          },
-                          child: ClipOval(
-                            child: Image.asset('assets/images/ParesonalHome/defaultavatar.png',width: 50,height: 50),
-                          ),
-                        )
-                    ),
+
                   ],
                 ),
               ),

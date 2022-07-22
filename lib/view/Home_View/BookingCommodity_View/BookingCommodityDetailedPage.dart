@@ -13,9 +13,10 @@ class BookingCommodityDetailedPage extends StatefulWidget {
 }
 
 class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedPage> {
-  bool bookingStatus =false;
-  int appointmentProcess=1;
-  bool alipay=false;
+  bool bookingStatus =false; //预约状态
+  int appointmentProcess=4;//判断当前状态
+  bool alipay=true; //抽奖状态
+  bool followStatus =false; //关注状态
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,10 +104,10 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
             ),
             Container(
               height: 60.h,
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Color(0xff2B1A3D)),
+                  color: const Color(0xff2B1A3D)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -119,18 +120,23 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                   ),
                   Expanded(
                     child: Container(
-                      margin: EdgeInsets.only(top: 15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: const [
-                              Text('嘻嘻', style: TextStyle(color: Colors.white)),
-                            ],
-                          ),
-                          const Text('藏品111',
-                              style: TextStyle(color: Color(0xff77789C))),
-                        ],
+                      margin: const EdgeInsets.only(top: 15),
+                      child: InkWell(
+                        onTap: (){
+                          luckyDrawFigure(context,alipay);
+                        },
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: const [
+                                Text('嘻嘻', style: TextStyle(color: Colors.white)),
+                              ],
+                            ),
+                            const Text('藏品111',
+                                style: TextStyle(color: Color(0xff77789C))),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -138,17 +144,20 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                     margin: const EdgeInsets.only(right: 10),
                     child: SizedBox(
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            safeSetState(() => followStatus=!followStatus);
+                          },
                           style: ButtonStyle(
                               backgroundColor: MaterialStateColor.resolveWith(
-                                  (states) => Colors.pinkAccent),
-                              shape:
-                                  MaterialStateProperty.all(const StadiumBorder(
+                                  (states) => followStatus?Colors.transparent:Colors.pinkAccent),
+                              side: MaterialStateProperty.all(BorderSide(color: Colors.grey, width: followStatus?1:0)),
+                              shape: MaterialStateProperty.all(const StadiumBorder(
                                       side: BorderSide(
                                 //设置 界面效果
                                 style: BorderStyle.solid,
                               )))),
-                          child: Text('+关注')),
+                          child: followStatus?const Text('已关注'):const Text('+关注')
+                      ),
                     ),
                   )
                 ],
@@ -223,24 +232,6 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                             ],
                           ),
                         ),
-                        Container(
-                          margin: const EdgeInsets.only(right: 5),
-                          child: InkWell(
-                            onTap: () {},
-                            child: Flex(
-                              direction: Axis.horizontal,
-                              children: [
-                                const Text('藏品详细',
-                                    style: TextStyle(color: Colors.white)),
-                                Image.asset(
-                                  'assets/images/ParesonalHome/Component_8_Property1_right.png',
-                                  width: 15,
-                                  height: 15,
-                                ),
-                              ],
-                            ),
-                          ),
-                        )
                       ],
                     ),
                     const SizedBox(height: 10),
@@ -336,9 +327,9 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                             Colors.transparent)),
                     onPressed: () {
                       if(appointmentProcess==3){
-                        defrayFigure(context, true);
+                        luckyDrawFigure(context,alipay);
                       }else if(appointmentProcess==4){
-
+                        defrayFigure(context, true);
                       }
                     },
                     child:appointmentProcess==3?Container(
@@ -351,14 +342,17 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                             fontSize: 15.sp),
                       ),
                     ):
-                    Center(
-                      child: Text(
-                        '已设置预约提醒',
+                    appointmentProcess==4?Center(child: Text(
+                        '提交订单',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 15.sp),
-                      ),
-                    ),
+                      ),):Center(child: Text(
+                      '已设置预约提醒',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15.sp),
+                    ),),
                   ),
                 ):
                 appointmentProcess==2?Container(
@@ -380,9 +374,7 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                         MaterialStateProperty.all(
                             Colors.transparent)),
                     onPressed: () {
-                      safeSetState(() {
-
-                      });
+                      safeSetState(() {});
                     },
                     child: Container(
                       alignment: Alignment.center,
@@ -418,7 +410,7 @@ class _BookingCommodityDetailedPageState extends State<BookingCommodityDetailedP
                         MaterialStateProperty.all(
                             Colors.transparent)),
                     onPressed: () {
-                      safeSetState(() {
+                       safeSetState(() {
                         bookingStatus=!bookingStatus;
                       });
                     },

@@ -84,12 +84,12 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                             data: Theme.of(context).copyWith(
                               canvasColor: Colors.black45,
                             ),
-                            child: Text('密码',style: TextStyle(color: ColorTable.white),),
+                            child: Container(width:55.h,child: Text('密码',style: TextStyle(color: ColorTable.white),)),
                           ),
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(left: 20,top: 20),
+                        margin: const EdgeInsets.only(left: 20,top: 20),
                         child: changePasswordInputBox(
                           '请再次输入密码',
                           textVisible: true,
@@ -97,7 +97,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                             data: Theme.of(context).copyWith(
                               canvasColor: Colors.black45,
                             ),
-                            child: Container(margin: const EdgeInsets.only(right: 5),child: Text('确认密码',style: TextStyle(color: ColorTable.white),)),
+                            child: Container(width: 55.h,child: Text('确认密码',style: TextStyle(color: ColorTable.white),)),
                           ),
                         ),
                       ),

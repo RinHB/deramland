@@ -44,7 +44,7 @@ class _AllOrdersState extends State<AllOrders> {
                             children: [
                               Container(
                                 width: 90.w,
-                                height: 90.h,
+                                height: 80.h,
                                 decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.all(Radius.circular(20)),
                                     image: DecorationImage(
@@ -253,6 +253,7 @@ class _AllOrdersState extends State<AllOrders> {
           Padding(
             padding: const EdgeInsets.only(top: 15,right: 15, left: 15),
             child: Container(
+              height: 105.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
                 color: const Color(0xFF2B1A3D),
@@ -277,8 +278,8 @@ class _AllOrdersState extends State<AllOrders> {
                           child: Row(
                             children: [
                               Container(
-                                width: 90.w,
-                                height: 90.h,
+                                width: 80.w,
+                                height: 80.h,
                                 decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.all(Radius.circular(20)),
                                     image: DecorationImage(

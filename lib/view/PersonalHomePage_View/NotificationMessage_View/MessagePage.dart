@@ -14,69 +14,76 @@ class _MessagePageState extends State<MessagePage> {
   void replyBox(){
     showModalBottomSheet(
         context: context,
+        isScrollControlled: true,
         builder: (BuildContext context){
-          return Container(
-            height: 100.h,
-              decoration: const BoxDecoration(
-                color: Color(0xFF201735),
-                borderRadius: BorderRadius.only(
-                    topLeft:Radius.circular(20),
-                    topRight: Radius.circular(20)
-                ),
-              ),
-              child:Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(left: 15,right: 15,top: 35),
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF0F122A),
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
-                    width: 240.w,
-                    height: 40.h,
-                    child: Container(
-                      margin: const EdgeInsets.all(5),
-                      child: const TextField(
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: '@回复嘻嘻:',
-                          hintStyle: TextStyle(
-                            color: Color(0xff77789C)
-                          ),
-                            enabledBorder:  UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Colors.transparent
-                                )
-                            )
-                        )
-                      ),
+          return Wrap(
+            children: [
+              Container(
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF201735),
+                    borderRadius: BorderRadius.only(
+                        topLeft:Radius.circular(20),
+                        topRight: Radius.circular(20)
                     ),
                   ),
-                  Container(
-                    width:80.w,
-                    margin: const EdgeInsets.only(top: 35),
-                    child: ElevatedButton(
-                        onPressed: (){},
-                        style:ButtonStyle(
-                            backgroundColor:MaterialStateColor.resolveWith((states) =>  Colors.pinkAccent),
-                            shape: MaterialStateProperty.all(
-                                const StadiumBorder(
-                                    side: BorderSide(
-                                      //设置 界面效果
-                                      style: BorderStyle.solid,
-                                    )
-                                )
-                            )
-                        ) ,
-                        child: Text('发送')
+                  child:Padding(
+                    padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(left: 15,right: 15,top: 25,bottom: 10),
+                          decoration: const BoxDecoration(
+                            color: Color(0xFF0F122A),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ),
+                          width: 240.w,
+                          height: 40.h,
+                          child: Container(
+                            margin: const EdgeInsets.all(5),
+                            child: const TextField(
+                              style: TextStyle(
+                                color: Colors.white
+                              ),
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: '@回复嘻嘻:',
+                                hintStyle: TextStyle(
+                                  color: Color(0xff77789C)
+                                ),
+                                  enabledBorder:  UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.transparent
+                                      )
+                                  )
+                              )
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width:80.w,
+                          margin: const EdgeInsets.only(top: 25,bottom: 10),
+                          child: ElevatedButton(
+                              onPressed: (){},
+                              style:ButtonStyle(
+                                  backgroundColor:MaterialStateColor.resolveWith((states) =>  Colors.pinkAccent),
+                                  shape: MaterialStateProperty.all(
+                                      const StadiumBorder(
+                                          side: BorderSide(
+                                            //设置 界面效果
+                                            style: BorderStyle.solid,
+                                          )
+                                      )
+                                  )
+                              ) ,
+                              child: Text('发送')
+                          ),
+                        )
+                      ],
                     ),
-                  )
-                ],
+                  ),
               ),
+            ],
           );
         },
         backgroundColor: Colors.transparent
@@ -89,7 +96,7 @@ class _MessagePageState extends State<MessagePage> {
       child: ListView(
         children: [
           Container(
-            margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
             height: 150,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

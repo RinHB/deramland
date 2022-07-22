@@ -235,7 +235,7 @@ Future tooltipButton(BuildContext context,
     {String title = 'title',
     String content = 'content',
     VoidCallback? onPressed,
-    String sure = '确定',
+    String sure = '是',
     Color color = Colors.white}) {
   return showCupertinoModalPopup(
       context: context,
@@ -243,17 +243,21 @@ Future tooltipButton(BuildContext context,
         return AlertDialog(
           backgroundColor: color,
           buttonPadding: EdgeInsets.zero,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           title: Center(
               child: Text(title,
                   style: TextStyle(
                     color: ColorTable.white,
                   ))),
-          content: Text(content,
-              style: TextStyle(
-                color: ColorTable.white,
-              )),
+          content: SizedBox(
+            height: 30.h,
+            child: Center(
+              child: Text(content,
+                  style: TextStyle(
+                    color: ColorTable.white,
+                  )),
+            ),
+          ),
           actions: [
             Flex(
               direction: Axis.horizontal,
@@ -261,7 +265,7 @@ Future tooltipButton(BuildContext context,
                 Expanded(
                   child: ClipRRect(
                     borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(10)),
+                        bottomLeft: Radius.circular(10)),
                     child: Container(
                       decoration: BoxDecoration(
                         border: Border(
@@ -294,7 +298,7 @@ Future tooltipButton(BuildContext context,
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: const Text('取消',
+                        child: const Text('否',
                             style: TextStyle(
                               color: Colors.white,
                             )),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class QrCodePage extends StatefulWidget {
   const QrCodePage({Key? key}) : super(key: key);
@@ -28,8 +29,8 @@ class _QrCodePageState extends State<QrCodePage> {
               const Text('测试测试测试测试',style: TextStyle(color: Colors.white,fontSize: 17),),
               const SizedBox(height: 20),
               Container(
-                width: 350,
-                height: 350,
+                width: 350.w,
+                height: 350.h,
                 decoration: const BoxDecoration(
                   color: Color(0Xff2B1A3D),
                   borderRadius: BorderRadius.all(Radius.circular(20))

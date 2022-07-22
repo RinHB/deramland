@@ -33,9 +33,6 @@ class _PersonalCollectionDisplayPageState extends State<PersonalCollectionDispla
                 IconButton(onPressed: (){
                   Navigator.pop(context);
                 }, icon: Image.asset('assets/images/log/Returnkey.png',width: 20,height: 20,)),
-                TextButton(onPressed: (){
-                  Navigator.pushNamed(context, '/PersonalInformationPage');
-                }, child: Text('编辑资料',style: TextStyle(color: ColorTable.white),))
               ],
             ),
             personalHomeHeadFigure(
@@ -43,7 +40,6 @@ class _PersonalCollectionDisplayPageState extends State<PersonalCollectionDispla
                 '测试',
                 'assets/images/ParesonalHome/test.png',
                     () {
-                  Navigator.pushNamed(context, '/PersonalCollectionDisplayPage');
                 },
                 loginStatus,
                 ),

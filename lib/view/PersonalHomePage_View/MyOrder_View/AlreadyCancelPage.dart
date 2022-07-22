@@ -54,7 +54,7 @@ class _AlreadyCancelPageState extends State<AlreadyCancelPage> {
                               children: [
                                 Container(
                                   width: 90.w,
-                                  height: 90.h,
+                                  height: 80.h,
                                   decoration: const BoxDecoration(
                                       borderRadius: BorderRadius.all(Radius.circular(20)),
                                       image: DecorationImage(

@@ -37,6 +37,22 @@ class _MySettingsPageState extends State<MySettingsPage> {
                 ),
                 child: Column(
                   children: [
+                    Container(
+                      margin: EdgeInsets.only(top: insideBoxMargin),
+                      child: personalInformationListFigure(
+                          '主题封面',
+                          InkWell(
+                            onTap: (){
+                              Navigator.pushNamed(context, '/SwitchThemePage');
+                            },
+                            child: Image.asset(
+                                'assets/images/ParesonalHome/Component_8_Property1_right.png',
+                                width: 15,
+                                height: 15),
+                          ),
+                          color: ColorTable.tipColor
+                      ),
+                    ),
                     status?Container(
                       margin: EdgeInsets.only(top: insideBoxMargin),
                       child: personalInformationListFigure(

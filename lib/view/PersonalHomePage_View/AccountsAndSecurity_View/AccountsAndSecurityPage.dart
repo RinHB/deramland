@@ -57,9 +57,14 @@ class _AccountsAndSecurityPageState extends State<AccountsAndSecurityPage> {
                       margin: EdgeInsets.only(top: insideBoxMargin),
                       child: personalInformationListFigure(
                           '昵称',
-                          Text(
-                            '请输入名称',
-                            style: TextStyle(color: ColorTable.pink),
+                          InkWell(
+                            onTap: (){
+                              Navigator.pushNamed(context, '/PersonalInformationPage');
+                            },
+                            child: Text(
+                              '请输入名称',
+                              style: TextStyle(color: ColorTable.pink),
+                            ),
                           )),
                     ),
                     Container(
@@ -197,21 +202,34 @@ class _AccountsAndSecurityPageState extends State<AccountsAndSecurityPage> {
                           '区块链地址',
                           InkWell(
                             onTap: () {
-                              debugPrint('修改邮箱');
+                              debugPrint('区块链地址');
                             },
                             child: Flex(
                               direction: Axis.horizontal,
                               children: [
-                                Container(
-                                  width: 160.w,
-                                    child: Text(
-                                  '2656526zwssxwqs565',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(color: ColorTable.pink),
-                                )),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    SizedBox(
+                                      width: 110.w,
+                                        child: Text(
+                                      '2656526zwssxwqs565',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(color: ColorTable.pink),
+                                    )),
+                                  ],
+                                ),
                                 InkWell(
                                   onTap: (){
+                                    operationTipsFigure(context,
+                                      title: Column(
+                                        children: [
+                                          Image.asset('assets/images/ParesonalHome/success.png',width: 30,height: 30,),
+                                          Text('复制成功',style: TextStyle(color: ColorTable.white),)
+                                        ],
+                                      ),
+                                    );
                                     Clipboard.setData(const ClipboardData(text:'复制的内容'));
                                   },
                                   child: Image.asset(

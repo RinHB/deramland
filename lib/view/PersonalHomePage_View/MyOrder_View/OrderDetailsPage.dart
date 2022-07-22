@@ -34,7 +34,6 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
               Padding(
                 padding: const EdgeInsets.only(top: 15,right: 15, left: 15),
                 child: Container(
-                  height: 300.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.0),
                     color: const Color(0xFF2B1A3D),

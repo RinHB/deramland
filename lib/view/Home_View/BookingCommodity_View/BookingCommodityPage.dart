@@ -165,7 +165,7 @@ class _BookingCommodityPageState extends State<BookingCommodityPage> {
                           ),
                           Container(
                             width: 200.w,
-                            height: 112.h,
+                            height: 110.h,
                             decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                     topRight: Radius.circular(20),

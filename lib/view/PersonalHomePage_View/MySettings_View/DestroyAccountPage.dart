@@ -99,14 +99,12 @@ class _DestroyAccountPageState extends State<DestroyAccountPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
-                    margin: const EdgeInsets.only(left: 20),
-                    child: Row(
-                      children: [
-                        Text('点击[下一步]即代表您已经同意',style: TextStyle(color: ColorTable.tipColor),),
-                        TextButton(onPressed: (){}, child: const Text('用户注销协议'))
-                      ],
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('点击[下一步]即代表您已经同意',style: TextStyle(color: ColorTable.tipColor),),
+                      TextButton(onPressed: (){}, child: const Text('用户注销协议',style: TextStyle(color: const Color(0xFFFF0860)),))
+                    ],
                   ),
                   gradientButton('下一步', const Color(0xFFFF0860),
                       const Color(0xFF333773), () {})

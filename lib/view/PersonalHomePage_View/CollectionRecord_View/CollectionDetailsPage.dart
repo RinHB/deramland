@@ -16,6 +16,7 @@ class CollectionDetailsPage extends StatefulWidget {
 class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
   bool giveALike = false;
   bool navigationBarState = false;
+  TextEditingController comment = TextEditingController();//输入框的编辑
   //炫耀显示
   void toShowOffShowBottomSheet() {
     //用于在底部打开弹框的效果
@@ -102,6 +103,7 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
                           topLeft: Radius.circular(20),
                           bottomLeft: Radius.circular(20))),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         margin: const EdgeInsets.only(left: 10),
@@ -145,7 +147,8 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
           );
         },
         backgroundColor: Colors.transparent, //重要
-        context: context);
+        context: context
+    );
   }
 
   //转赠显示
@@ -219,7 +222,7 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
 
   //评论显示
   void commentShowShowBottomSheet() {
-    bool giveALikeState=false;
+    bool giveALikeState=false;//评论点赞状态
     //用于在底部打开弹框的效果
     showModalBottomSheet(
         builder: (context) {
@@ -227,145 +230,152 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
           return StatefulBuilder(
             builder: (context,setStateBottomSheet) {
               return Container(
-                height: 350.h,
                 decoration: const BoxDecoration(
                   color: Color(0xFF201735),
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
                 ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const SizedBox(),
-                        Container(
-                            margin: const EdgeInsets.only(left: 30),
-                            child: const Text(
-                              '共有325条评论',
-                              style: TextStyle(color: Color(0xff77789C)),
-                            )),
-                        IconButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: Image.asset(
-                              'assets/images/log/cancel.png',
-                              height: 13.h,
-                            )),
-                      ],
-                    ),
-                    splitLineFigure(),
-                    const SizedBox(height: 10),
-                    Expanded(
-                        child: ListView(
-                          children: [
-                            Container(
-                                margin: const EdgeInsets.all(10),
-                                child:Stack(
-                                  children: [
-                                    ClipOval(
-                                      child: Image.asset('assets/images/ParesonalHome/test.png',width: 50,height: 50,),
-                                    ),
-                                    Container(
-                                      width: 260.w,
-                                      margin: EdgeInsets.only(left: 55.r,right: 20.r),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text('嘻嘻',style: TextStyle(color: ColorTable.white),),
-                                          const SizedBox(height: 5,),
-                                          Text('评论了你：这个唐三彩色泽很不错，非常想拥有这个唐三彩色泽常想拥有个唐三彩色泽很不错，非常想拥有这个唐三彩色泽常想拥有',style: TextStyle(color:ColorTable.tipColor),maxLines: 6,overflow: TextOverflow.ellipsis,),
-                                          const SizedBox(height: 5,),
-                                          Text('·刚刚 江苏',style: TextStyle(color: ColorTable.white),),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 35.r),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.end,
-                                        children: [
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.end,
-                                            children: [
-                                              InkWell(
-                                                onTap: (){
-                                                  setStateBottomSheet((){
-                                                    giveALikeState=!giveALikeState;
-                                                  });
-                                                },
-                                                child: giveALikeState
-                                                    ? Image.asset(
-                                                    'assets/images/ParesonalHome/NotificationMessage/giveALikeOn.png',
-                                                    width: 20,
-                                                    height: 20)
-                                                    : Image.asset(
-                                                    'assets/images/collection/giveALikeOff.png',
-                                                    width: 20,
-                                                    height: 20),
-                                              ),
-                                              const Text('1',style: TextStyle(color: Colors.white),)
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ))
-                          ],
-                        )),
-                    Container(
-                      height: 55.h,
-                      decoration: BoxDecoration(
-                        color: ColorTable.boxBackGroundPurple,
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          const SizedBox(),
                           Container(
-                            margin:
-                            const EdgeInsets.only(left: 15, right: 15, top: 15),
-                            decoration: const BoxDecoration(
-                              color: Color(0xFF0F122A),
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                            ),
-                            width: 240.w,
-                            height: 35.h,
-                            child: Container(
-                              margin: const EdgeInsets.only(left: 5),
-                              child: const TextField(
-                                  style: TextStyle(color: Colors.white),
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: '说点什么吧，万一火了呢',
-                                      hintStyle:
-                                      TextStyle(color: Color(0xff77789C)),
-                                      enabledBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Colors.transparent)))),
-                            ),
-                          ),
-                          Container(
-                            width: 80.w,
-                            margin: const EdgeInsets.only(top: 15),
-                            child: ElevatedButton(
-                                onPressed: () {},
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateColor.resolveWith(
-                                            (states) => Colors.pinkAccent),
-                                    shape: MaterialStateProperty.all(
-                                        const StadiumBorder(
-                                            side: BorderSide(
-                                              //设置 界面效果
-                                              style: BorderStyle.solid,
-                                            )))),
-                                child: Text('发送')),
-                          )
+                              margin: const EdgeInsets.only(left: 30),
+                              child: const Text(
+                                '共有325条评论',
+                                style: TextStyle(color: Color(0xff77789C)),
+                              )),
+                          IconButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              icon: Image.asset(
+                                'assets/images/log/cancel.png',
+                                height: 13.h,
+                              )),
                         ],
                       ),
-                    )
-                  ],
+                      splitLineFigure(),
+                      Expanded(
+                          child: ListView(
+                            children: [
+                              Container(
+                                  margin: const EdgeInsets.all(10),
+                                  child:Stack(
+                                    children: [
+                                      ClipOval(
+                                        child: Image.asset('assets/images/ParesonalHome/test.png',width: 50,height: 50,),
+                                      ),
+                                      Container(
+                                        width: 260.w,
+                                        margin: EdgeInsets.only(left: 55.r,right: 20.r),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text('嘻嘻',style: TextStyle(color: ColorTable.white),),
+                                            const SizedBox(height: 5,),
+                                            Text('评论了你：这个唐三彩色泽很不错，非常想拥有这个唐三彩色泽常想拥有个唐三彩色泽很不错，非常想拥有这个唐三彩色泽常想拥有',style: TextStyle(color:ColorTable.tipColor),maxLines: 6,overflow: TextOverflow.ellipsis,),
+                                            const SizedBox(height: 5,),
+                                            Text('·刚刚 江苏',style: TextStyle(color: ColorTable.white),),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 35.r),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.end,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.end,
+                                              children: [
+                                                InkWell(
+                                                  onTap: (){
+                                                    setStateBottomSheet((){
+                                                      giveALikeState=!giveALikeState;
+                                                    });
+                                                  },
+                                                  child: giveALikeState
+                                                      ? Image.asset(
+                                                      'assets/images/ParesonalHome/NotificationMessage/giveALikeOn.png',
+                                                      width: 20,
+                                                      height: 20)
+                                                      : Image.asset(
+                                                      'assets/images/collection/giveALikeOff.png',
+                                                      width: 20,
+                                                      height: 20),
+                                                ),
+                                                const Text('1',style: TextStyle(color: Colors.white),)
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ))
+                            ],
+                          )),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: ColorTable.boxBackGroundPurple,
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              margin:
+                              const EdgeInsets.only(left: 15, right: 15, top: 5,bottom: 10),
+                              decoration: const BoxDecoration(
+                                color: Color(0xFF0F122A),
+                                borderRadius: BorderRadius.all(Radius.circular(20)),
+                              ),
+                              width: 240.w,
+                              height: 35.h,
+                              child: Container(
+                                margin: const EdgeInsets.only(left: 5),
+                                child: TextField(
+                                    controller: comment,
+                                    style: const TextStyle(color: Colors.white),
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: '善于结善缘,恶言伤人心',
+                                        hintStyle:
+                                        TextStyle(color: Color(0xff77789C)),
+                                        enabledBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color: Colors.transparent)))),
+                              ),
+                            ),
+                            Container(
+                              width: 80.w,
+                              margin: const EdgeInsets.only(top: 5),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    if(comment.text.isEmpty){
+                                      debugPrint('未输入哦');
+                                      return;
+                                    }
+                                    comment.text='';
+                                    FocusScope.of(context).requestFocus(FocusNode());//关闭键盘
+                                  },
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateColor.resolveWith(
+                                              (states) => Colors.pinkAccent),
+                                      shape: MaterialStateProperty.all(
+                                          const StadiumBorder(
+                                              side: BorderSide(
+                                                //设置 界面效果
+                                                style: BorderStyle.solid,
+                                              )))),
+                                  child: Text('发送')),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               );
             },
@@ -465,6 +475,14 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
                         children: [
                           InkWell(
                             onTap: () {
+                              operationTipsFigure(context,
+                                title: Column(
+                                  children: [
+                                    Image.asset('assets/images/ParesonalHome/success.png',width: 30,height: 30,),
+                                    Text('复制成功',style: TextStyle(color: ColorTable.white),)
+                                  ],
+                                ),
+                              );
                               Clipboard.setData(ClipboardData(text: '复制的内容'));
                             },
                             child: Image.asset(
