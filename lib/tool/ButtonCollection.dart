@@ -60,7 +60,7 @@ Widget gradientButton(
 }
 
 //底部按钮
-Widget underButton(BuildContext context) {
+Widget underButton(BuildContext context,String buttonName,String pushName) {
   return SizedBox(
     height: 150.w,
     child: Row(
@@ -170,9 +170,9 @@ Widget underButton(BuildContext context) {
         const Text('|', style: TextStyle(color: Colors.white)),
         TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/Registered');
+              Navigator.popAndPushNamed(context, pushName);
             },
-            child: const Text('注册   ', style: TextStyle(color: Colors.white)))
+            child: Text(buttonName, style: TextStyle(color: Colors.white)))
       ],
     ),
   );
@@ -311,4 +311,14 @@ Future tooltipButton(BuildContext context,
           ],
         );
       });
+}
+
+GestureDetector closeTheKeyboard(BuildContext context,{Widget? child}){
+  FocusNode blankNode = FocusNode();
+  return GestureDetector(
+    onTap: (){
+      FocusScope.of(context).requestFocus(blankNode);
+    },
+    child: child,
+  );
 }

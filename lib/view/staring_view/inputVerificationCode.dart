@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_deramland/utils/http/connection.dart';
 import 'package:flutter_deramland/view/Tab/tabs.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import '../../entity/VerificationCodeLogin.dart';
 import '../../tool/ButtonCollection.dart';
 
 class InputVerificationCode extends StatefulWidget {
@@ -17,12 +19,13 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
   final Duration duration = const Duration(seconds: 1);
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   int index = 60;
-
+  int errCode=0;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     startCountdown();
+    Connection.sendSMSVerificationCode(widget.phone!);
   }
 
   //倒计时方法
@@ -53,7 +56,6 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
     super.dispose();
     timer.cancel();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +76,7 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
                             padding: const EdgeInsets.only(bottom: 90),
                             child: IconButton(
                                 onPressed: (){
+
                                   Navigator.of(context).pop();
                                 },
                                 icon: Image.asset('assets/images/log/Returnkey.png',width: 20.w,height: 20.h)
@@ -100,12 +103,12 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
                               children: [
                                 Expanded(child: PinCodeTextField(
                                   appContext: context,
-                                  length: 5,
+                                  length: 4,
                                   pinTheme: PinTheme(
                                     shape: PinCodeFieldShape.box,
                                     borderRadius: BorderRadius.circular(5),
-                                    fieldHeight: 50,
-                                    fieldWidth: 50,
+                                    fieldHeight: 60,
+                                    fieldWidth: 60,
                                     activeFillColor: Colors.white,
                                     inactiveColor: Colors.white,
                                     selectedColor: Colors.white
@@ -114,15 +117,7 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
 
                                   },
                                   onCompleted: (v) {
-                                    if(v=='12345'){
-                                      debugPrint('验证成功');
-                                      Navigator.pushAndRemoveUntil(
-                                          context,
-                                          MaterialPageRoute(builder: (context) =>  const Tabs()),
-                                              (route) => false);
-                                    }else{
-                                      debugPrint('验证失败');
-                                    }
+                                    Connection.smsVerificationLogin(widget.phone!,v);
                                   },
                                   textStyle: const TextStyle(color: Colors.white),
                                   keyboardType: TextInputType.number,
@@ -140,6 +135,7 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
                           if(index==0){
                             index=60;
                             startCountdown();
+                            Connection.sendSMSVerificationCode(widget.phone!);
                           }
                         })
                   ],

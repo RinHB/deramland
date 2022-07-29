@@ -16,6 +16,7 @@ class CollectionDetailsPage extends StatefulWidget {
 class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
   bool giveALike = false;
   bool navigationBarState = false;
+  int index=1;
   TextEditingController comment = TextEditingController();//输入框的编辑
   //炫耀显示
   void toShowOffShowBottomSheet() {
@@ -340,7 +341,7 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
                                     style: const TextStyle(color: Colors.white),
                                     decoration: const InputDecoration(
                                         border: InputBorder.none,
-                                        hintText: '善于结善缘,恶言伤人心',
+                                        hintText: '善语结善缘,恶言伤人心',
                                         hintStyle:
                                         TextStyle(color: Color(0xff77789C)),
                                         enabledBorder: UnderlineInputBorder(
@@ -626,14 +627,18 @@ class _CollectionDetailsPageState extends State<CollectionDetailsPage> {
                 Image.asset('assets/images/ParesonalHome/GrayLine.png',height: 30),
                 InkWell(
                   onTap: () {
-                    giveShowBottomSheet();
+                    if(index==0){
+                      giveShowBottomSheet();
+                    }else if(index==1){
+                      Navigator.pushNamed(context, '/GiftObjectPage');
+                    }
                   },
                   child: Row(
                     children: [
                       Image.asset('assets/images/ParesonalHome/giving.png',
                           width: 20, height: 20),
-                      SizedBox(width: 3),
-                      Text(
+                      const SizedBox(width: 3),
+                      const Text(
                         '转增',
                         style: TextStyle(color: Colors.white),
                       )

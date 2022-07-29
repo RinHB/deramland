@@ -15,6 +15,7 @@ class AgreementView extends StatelessWidget {
     final prefs = await SharedPreferences.getInstance();
     prefs.setBool('agreement', true);
   }
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
@@ -39,10 +40,9 @@ class AgreementView extends StatelessWidget {
                       Expanded(
                         child: TextButton(
                           onPressed: () {
-                            debugPrint('关闭app');
                             exit(0);
                           },
-                          child: const Text('不同意(将退出app)',
+                          child: const Text('拒绝',
                               style: TextStyle(
                                 color: Colors.black45,
                               )
@@ -51,7 +51,7 @@ class AgreementView extends StatelessWidget {
                       ),
                       Expanded(
                         child: Container(
-                          height: 53.h,
+                          height: 43.h,
                           decoration: const BoxDecoration(
                             color:Colors.pinkAccent,
                             borderRadius: BorderRadius.only(bottomRight: Radius.circular(10))
@@ -64,7 +64,7 @@ class AgreementView extends StatelessWidget {
                                   MaterialPageRoute(builder: (context) =>  const Tabs()),
                                       (route) => false);
                             },
-                            child: const Text('我以阅读并同意',style: TextStyle(color: Colors.white),),
+                            child: const Text('确定',style: TextStyle(color: Colors.white),),
                           ),
                         ),
                       )

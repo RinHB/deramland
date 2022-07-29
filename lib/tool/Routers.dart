@@ -12,6 +12,9 @@ import '../view/PersonalHomePage_View/AccountsAndSecurity_View/VerifyMobilePhone
 import '../view/PersonalHomePage_View/AccountsAndSecurity_View/VerifyPhoneInformationPage.dart';
 import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionDetailsPage.dart';
 import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionRecordPage.dart';
+import '../view/PersonalHomePage_View/CollectionRecord_View/ConfirmGiftPage.dart';
+import '../view/PersonalHomePage_View/CollectionRecord_View/GiftObjectPage.dart';
+import '../view/PersonalHomePage_View/CollectionRecord_View/ReceiveAGiftPage.dart';
 import '../view/PersonalHomePage_View/MyOrder_View/MyOrderPage.dart';
 import '../view/PersonalHomePage_View/MyOrder_View/OrderDetailsPage.dart';
 import '../view/PersonalHomePage_View/MySettings_View/DestroyAccountPage.dart';
@@ -31,14 +34,12 @@ import '../view/staring_view/VerificationCodeLogin.dart';
 import '../view/staring_view/emailLogin.dart';
 import '../view/staring_view/inputVerificationCode.dart';
 import '../view/staring_view/passwordLogin.dart';
-import '../view/staring_view/registered.dart';
 
 class Routers{
   static final _routes={
     '/PasswordLogin': (context,{Object? args}) =>const PasswordLogin(),
     '/VerificationCodeLogin':(context,{Object? args}) =>const VerificationCodeLogin(),
     '/InputVerificationCode':(context,{Object? args}) =>const InputVerificationCode(),
-    '/Registered':(context,{Object? args}) =>const Registered(),
     '/EmailLogin':(context,{Object? args}) =>const EmailLogin(),
     '/PersonalInformationPage':(context,{Object? args}) =>const PersonalInformationPage(),
     '/QrCodePage':(context,{Object? args}) =>const QrCodePage(),
@@ -66,6 +67,9 @@ class Routers{
     '/PersonalCollectionDisplayPage':(context,{Object? args}) =>const PersonalCollectionDisplayPage(),
     '/DestroyAccountPage':(context,{Object? args}) =>const DestroyAccountPage(),
     '/OthersHomepagePage':(context,{Object? args}) =>const OthersHomepagePage(),
+    '/GiftObjectPage':(context,{Object? args}) =>const GiftObjectPage(),
+    '/ConfirmGiftPage':(context,{Object? args}) =>const ConfirmGiftPage(),
+    '/ReceiveAGiftPage':(context,{Object? args}) =>const ReceiveAGiftPage(),
   };
 
   //监听route，类似于拦截器原理

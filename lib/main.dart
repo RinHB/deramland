@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deramland/provider_setup.dart';
 import 'package:flutter_deramland/tool/Routers.dart';
-import 'package:flutter_deramland/view/Tab/tabs.dart';
 import 'package:flutter_deramland/view/staring_view/agreementView.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); //不加这个强制横/竖屏会报错
@@ -11,7 +12,10 @@ void main() {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
   ]);
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: providers,
+    child: const MyApp(),)
+  );
 }
 Routers _routers= Routers();
 class MyApp extends StatelessWidget {

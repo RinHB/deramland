@@ -34,52 +34,12 @@ class _PasswordLoginState extends State<PasswordLogin> {
                       headFigure(),
                       const SizedBox(height: 20),
                       Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: phoneInputBox(
-                          phoneSelectBox:Theme(
-                            data: Theme.of(context).copyWith(
-                              canvasColor: Colors.black45,
-                            ),
-                            child: DropdownButton(
-                              value: dropdownValue,
-                              icon: Image.asset('assets/images/log/drop-down arrow.png',height: 10.h,width: 10.w,),
-                              style: const TextStyle(color: Colors.white),
-                              underline: Container(
-                                height: 0,
-                                color: Colors.white,
-                              ),
-                              items: <String>['One', '+86', 'Free', 'Four']
-                                  .map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                              onChanged: (String? newValue) {
-                                setState(() {
-                                  dropdownValue = newValue!;
-                                });
-                              },
-
-                            ),
-                          ),),
+                        padding: const EdgeInsets.only(right: 10),
+                        child: inputBox('请输入手机号',Colors.white,Colors.white),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: inputBox('请输入密码',Colors.white,Colors.white),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Row(
-                          children: [
-                            TextButton(
-                              onPressed: (){
-                                Navigator.popAndPushNamed(context, '/VerificationCodeLogin');
-                              },
-                              child: const Text('验证码登录',style: TextStyle(color: Colors.pinkAccent)),
-                            ),
-                          ],
-                        ),
                       ),
                       gradientButtons(
                           '登录',
@@ -112,7 +72,7 @@ class _PasswordLoginState extends State<PasswordLogin> {
                             )
                           ],
                         ),
-                      underButton(context),
+                      underButton(context,'验证码登录','/VerificationCodeLogin'),
                     ],
                   ),
                 ),

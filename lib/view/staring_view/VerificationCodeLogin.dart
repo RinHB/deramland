@@ -1,4 +1,5 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../../tool/InputBox.dart';
 import '../../tool/ButtonCollection.dart';
 import 'package:flutter/material.dart';
@@ -44,52 +45,14 @@ class _VerificationCodeLoginState extends State<VerificationCodeLogin> {
                 headFigure(),
                 const SizedBox(height: 20),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: phoneInputBox(
-                    phoneSelectBox: Theme(
-                      data: Theme.of(context).copyWith(
-                        canvasColor: Colors.black45,
-                      ),
-                      child: DropdownButton(
-                        value: dropdownValue,
-                        icon: Image.asset(
-                          'assets/images/log/drop-down arrow.png',
-                          height: 10.h,
-                          width: 10.w,
-                        ),
-                        style: const TextStyle(color: Colors.white),
-                        underline: Container(
-                          height: 0,
-                          color: Colors.white,
-                        ),
-                        items: <String>['One', '+86', 'Free', 'Four']
-                            .map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            dropdownValue = newValue!;
-                          });
-                        },
-                      ),
-                    ),
-                    phoneInput: phone,
-                  ),
+                  padding: const EdgeInsets.only(right: 10),
+                  child: inputBox('请输入手机号',Colors.white,Colors.white,phoneInput: phone),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.only(left: 20),
                   child: Row(
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.popAndPushNamed(context, '/PasswordLogin');
-                        },
-                        child: const Text('密码登录',
-                            style: TextStyle(color: Colors.pinkAccent)),
-                      ),
+                    children: const [
+                      Text('未注册的手机号通过验证将自动注册',style: TextStyle(color: Color(0xff77789C)),),
                     ],
                   ),
                 ),
@@ -106,10 +69,14 @@ class _VerificationCodeLoginState extends State<VerificationCodeLogin> {
                                     phone: phone.text,
                                   )));
                     } else {
-                      debugPrint('未阅读协议');
+                      Fluttertoast.showToast(msg: '未阅读协议');
                     }
                   }else{
-                    debugPrint('输入手机号');
+                    if(phone.text.isEmpty){
+                      Fluttertoast.showToast(msg: '输入手机号');
+                    }else{
+                      Fluttertoast.showToast(msg: '手机号格式错误');
+                    }
                   }
                 }),
                 Row(
@@ -146,7 +113,7 @@ class _VerificationCodeLoginState extends State<VerificationCodeLogin> {
                     ),
                   ],
                 ),
-                underButton(context),
+                underButton(context,'密码登录','/PasswordLogin'),
               ],
             ),
           ),

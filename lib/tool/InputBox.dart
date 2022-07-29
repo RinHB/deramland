@@ -49,6 +49,7 @@ Widget phoneInputBox({Widget? phoneSelectBox,TextEditingController? phoneInput})
               enabledBorder: const UnderlineInputBorder(
                   borderSide: BorderSide(
                       color: Colors.white
+
                   )
               ),
               prefixIcon:phoneSelectBox
