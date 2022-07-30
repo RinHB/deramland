@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_deramland/tool/ColorTable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import '../../../model/user_model.dart';
 import '../../../tool/AccordingTheInformation.dart';
 import '../../../tool/ButtonCollection.dart';
 import '../../../tool/InputBox.dart';
@@ -105,10 +107,9 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                         margin: EdgeInsets.only(top: 20),
                         child: personalInformationListFigure(
                             '手机号',
-                            Text(
-                              '12345678911',
-                              style: TextStyle(color: ColorTable.tipColor),
-                            ),
+                            Consumer<UserModel>(builder: (_, userModel, Widget? child) {
+                              return Text(userModel.phone,style: TextStyle(color: ColorTable.tipColor),);
+                            },),
                           color: ColorTable.tipColor
                         ),
                       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_deramland/model/user_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class QrCodePage extends StatefulWidget {
   const QrCodePage({Key? key}) : super(key: key);
@@ -26,7 +28,10 @@ class _QrCodePageState extends State<QrCodePage> {
                 child: Image.asset('assets/images/ParesonalHome/test.png',width: 80,height: 80),
               ),
               const SizedBox(height: 10),
-              const Text('测试测试测试测试',style: TextStyle(color: Colors.white,fontSize: 17),),
+              Consumer<UserModel>(builder: (_, userModel, Widget? child) {
+                return Text(userModel.nickName,style: TextStyle(color: Colors.white,fontSize: 17),);
+              },
+              ),
               const SizedBox(height: 20),
               Container(
                 width: 350.w,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_deramland/model/user_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 import '../../tool/AccordingTheInformation.dart';
 class PersonalInformationPage extends StatefulWidget {
@@ -41,7 +43,9 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
                     ),
                     personalInformationListFigure(
                         '昵称',
-                        const Text('请输入名称',style: TextStyle(color: Color(0xff77789C)),)
+                        Consumer<UserModel>(builder: (_, userModel, Widget? child) {
+                          return Text(userModel.nickName,style: TextStyle(color: Color(0xff77789C)),);
+                        },)
                     ),
                     personalInformationListFigure(
                         '二维码名片',

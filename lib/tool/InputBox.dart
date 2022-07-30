@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deramland/tool/ColorTable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 //输入框
-Widget inputBox(String hint,Color colors,Color color,{TextEditingController? phoneInput}){
+Widget inputBox(String hint,Color colors,Color color,{TextEditingController? phoneInput,TextInputType? textInputType}){
   return Padding(
     padding: const EdgeInsets.only(left: 20),
     child: Flex(
@@ -14,7 +14,7 @@ Widget inputBox(String hint,Color colors,Color color,{TextEditingController? pho
           height: 35.h,
           child: TextFormField(
             controller: phoneInput,
-            keyboardType: TextInputType.emailAddress,
+            keyboardType: textInputType,
             style:  TextStyle(color: colors),
             decoration: InputDecoration(
               hintText: hint,

@@ -4,7 +4,9 @@ import 'package:flutter_deramland/utils/http/connection.dart';
 import 'package:flutter_deramland/view/Tab/tabs.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:provider/provider.dart';
 import '../../entity/VerificationCodeLogin.dart';
+import '../../model/user_model.dart';
 import '../../tool/ButtonCollection.dart';
 
 class InputVerificationCode extends StatefulWidget {
@@ -19,7 +21,6 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
   final Duration duration = const Duration(seconds: 1);
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   int index = 60;
-  int errCode=0;
   @override
   void initState() {
     // TODO: implement initState
@@ -58,6 +59,7 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
   }
   @override
   Widget build(BuildContext context) {
+    final navigator = Navigator.of(context);
     return Scaffold(
       body: Column(
         children: [
@@ -76,7 +78,6 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
                             padding: const EdgeInsets.only(bottom: 90),
                             child: IconButton(
                                 onPressed: (){
-
                                   Navigator.of(context).pop();
                                 },
                                 icon: Image.asset('assets/images/log/Returnkey.png',width: 20.w,height: 20.h)
@@ -116,8 +117,14 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
                                   onChanged: (String value) {
 
                                   },
-                                  onCompleted: (v) {
-                                    Connection.smsVerificationLogin(widget.phone!,v);
+                                  onCompleted: (v) async{
+                                    UserModel userModel = Provider.of<UserModel>(context, listen: false);
+                                    final res=await Connection.smsVerificationLogin(userModel,widget.phone!,v);
+                                    if(res['errCode']==1){
+                                      navigator.pushAndRemoveUntil(
+                                          MaterialPageRoute(builder: (context) =>const Tabs()),
+                                              (route) => false);
+                                    }
                                   },
                                   textStyle: const TextStyle(color: Colors.white),
                                   keyboardType: TextInputType.number,

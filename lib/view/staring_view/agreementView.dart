@@ -38,14 +38,16 @@ class AgreementView extends StatelessWidget {
                     direction:Axis.horizontal,
                     children: [
                       Expanded(
-                        child: TextButton(
-                          onPressed: () {
+                        child: InkWell(
+                          onTap: () {
                             exit(0);
                           },
-                          child: const Text('拒绝',
-                              style: TextStyle(
-                                color: Colors.black45,
-                              )
+                          child: const Center(
+                            child: Text('拒绝',
+                                style: TextStyle(
+                                  color: Colors.black45,
+                                )
+                            ),
                           ),
                         ),
                       ),
@@ -56,15 +58,15 @@ class AgreementView extends StatelessWidget {
                             color:Colors.pinkAccent,
                             borderRadius: BorderRadius.only(bottomRight: Radius.circular(10))
                           ),
-                          child: TextButton(
-                            onPressed: ()  {
+                          child: InkWell(
+                            onTap: () {
                               agreement();
                               Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(builder: (context) =>  const Tabs()),
                                       (route) => false);
                             },
-                            child: const Text('确定',style: TextStyle(color: Colors.white),),
+                            child: const Center(child: Text('确定',style: TextStyle(color: Colors.white),)),
                           ),
                         ),
                       )

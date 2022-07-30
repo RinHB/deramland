@@ -46,7 +46,7 @@ class _VerificationCodeLoginState extends State<VerificationCodeLogin> {
                 const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.only(right: 10),
-                  child: inputBox('请输入手机号',Colors.white,Colors.white,phoneInput: phone),
+                  child: inputBox('请输入手机号',Colors.white,Colors.white,phoneInput: phone,textInputType: TextInputType.phone),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 20),
@@ -69,7 +69,7 @@ class _VerificationCodeLoginState extends State<VerificationCodeLogin> {
                                     phone: phone.text,
                                   )));
                     } else {
-                      Fluttertoast.showToast(msg: '未阅读协议');
+                      Fluttertoast.showToast(msg: '同意用户协议及政策，才可以登录注册呦');
                     }
                   }else{
                     if(phone.text.isEmpty){

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deramland/model/user_model.dart';
 import 'package:flutter_deramland/tool/ColorTable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 import '../../../tool/AccordingTheInformation.dart';
 import 'ModifyGiftPasswordPage.dart';
@@ -61,32 +63,37 @@ class _AccountsAndSecurityPageState extends State<AccountsAndSecurityPage> {
                             onTap: (){
                               Navigator.pushNamed(context, '/PersonalInformationPage');
                             },
-                            child: Text(
-                              '请输入名称',
-                              style: TextStyle(color: ColorTable.pink),
-                            ),
+                            child:  Consumer<UserModel>(builder: (_, userModel, Widget? child) {
+                              return Text(userModel.nickName,style: TextStyle(color: ColorTable.pink),);
+                            },),
                           )),
                     ),
                     Container(
                       margin: EdgeInsets.only(top: insideBoxMargin),
                       child: personalInformationListFigure(
                           '手机号',
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) => ModifyPhoneNumberPage(
-                                   phone: phone,
-                                  )));
+                          Consumer<UserModel>(
+                            builder: (_, userModel, Widget? child) {
+                              return InkWell(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                      builder: (context) => ModifyPhoneNumberPage(
+                                        phone: userModel.phone,
+                                      )));
+                                },
+                                child: Row(
+                                  children: [
+                                    Consumer<UserModel>(builder: (_, userModel, Widget? child) {
+                                      return Text(userModel.phone,style: TextStyle(color: ColorTable.tipColor),);
+                                    },),
+                                    Image.asset(
+                                        'assets/images/ParesonalHome/Component_8_Property1_right.png',
+                                        width: 15,
+                                        height: 15)
+                                  ],
+                                ),
+                              );
                             },
-                            child: Row(
-                              children: [
-                                Text(phone,style: TextStyle(color: ColorTable.tipColor),),
-                                Image.asset(
-                                    'assets/images/ParesonalHome/Component_8_Property1_right.png',
-                                    width: 15,
-                                    height: 15)
-                              ],
-                            ),
                           )),
                     ),
                     Container(
@@ -137,63 +144,70 @@ class _AccountsAndSecurityPageState extends State<AccountsAndSecurityPage> {
                             ),
                           )),
                     ),
-                    Container(
-                      margin: EdgeInsets.only(top: insideBoxMargin),
-                      child: personalInformationListFigure(
-                          '实名认证',
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) => RealNameVerifiedPage(
-                                    phone: phone,
-                                  )));
-                            },
-                            child: Flex(
-                              direction: Axis.horizontal,
-                              children: [
-                                Image.asset(
-                                    'assets/images/ParesonalHome/PayForSuccess.png',
-                                    width: 15,
-                                    height: 15),
-                                const SizedBox(width: 5),
-                                Text(
-                                  '已认证',
-                                  style: TextStyle(color: ColorTable.pink),
+                    Consumer<UserModel>(
+                      builder: (_, userModel, Widget? child) {
+                        return Container(
+                          margin: EdgeInsets.only(top: insideBoxMargin),
+                          child: personalInformationListFigure(
+                              '实名认证',
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                      builder: (context) => RealNameVerifiedPage(
+                                        phone: userModel.phone,
+                                      )));
+                                },
+                                child: Flex(
+                                  direction: Axis.horizontal,
+                                  children: [
+                                    userModel.realNameFlag==1?Image.asset(
+                                        'assets/images/ParesonalHome/PayForSuccess.png',
+                                        width: 15,
+                                        height: 15):Container(),
+                                    const SizedBox(width: 5),
+                                   Text(
+                                     userModel.realNameFlag==1?'已认证':'未实名',
+                                      style: TextStyle(color: userModel.realNameFlag==1?ColorTable.pink:ColorTable.tipColor),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Image.asset(
+                                        'assets/images/ParesonalHome/Component_8_Property1_right.png',
+                                        width: 15,
+                                        height: 15)
+                                  ],
                                 ),
-                                const SizedBox(width: 10),
-                                Image.asset(
-                                    'assets/images/ParesonalHome/Component_8_Property1_right.png',
-                                    width: 15,
-                                    height: 15)
-                              ],
-                            ),
-                          )),
+                              )),
+                        );
+                      },
                     ),
                     Container(
                       margin: EdgeInsets.only(top: insideBoxMargin),
                       child: personalInformationListFigure(
                           '修改转增密码',
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) => ModifyGiftPasswordPage(
-                                    phone:phone
-                                  )));
-                            },
-                            child: Flex(
-                              direction: Axis.horizontal,
-                              children: [
-                                Text(
-                                  '去修改',
-                                  style: TextStyle(color: ColorTable.pink),
-                                ),
-                                const SizedBox(width: 10),
-                                Image.asset(
-                                    'assets/images/ParesonalHome/Component_8_Property1_right.png',
-                                    width: 15,
-                                    height: 15)
-                              ],
-                            ),
+                          Consumer<UserModel>(builder: (_, userModel, Widget? child) {
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) => ModifyGiftPasswordPage(
+                                        phone:userModel.phone
+                                    )));
+                              },
+                              child: Flex(
+                                direction: Axis.horizontal,
+                                children: [
+                                  Text(
+                                    '去修改',
+                                    style: TextStyle(color: ColorTable.pink),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Image.asset(
+                                      'assets/images/ParesonalHome/Component_8_Property1_right.png',
+                                      width: 15,
+                                      height: 15)
+                                ],
+                              ),
+                            );
+                          },
                           )),
                     ),
                     Container(
@@ -204,40 +218,44 @@ class _AccountsAndSecurityPageState extends State<AccountsAndSecurityPage> {
                             onTap: () {
                               debugPrint('区块链地址');
                             },
-                            child: Flex(
-                              direction: Axis.horizontal,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
+                            child: Consumer<UserModel>(
+                              builder: (_, userModel, Widget? child) {
+                                return Flex(
+                                  direction: Axis.horizontal,
                                   children: [
-                                    SizedBox(
-                                      width: 110.w,
-                                        child: Text(
-                                      '2656526zwssxwqs565',
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(color: ColorTable.pink),
-                                    )),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        SizedBox(
+                                            width: 110.w,
+                                            child: Text(
+                                              userModel.blockAddress,
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(color: ColorTable.pink),
+                                            )),
+                                      ],
+                                    ),
+                                    InkWell(
+                                      onTap: (){
+                                        operationTipsFigure(context,
+                                          title: Column(
+                                            children: [
+                                              Image.asset('assets/images/ParesonalHome/success.png',width: 30,height: 30,),
+                                              Text('复制成功',style: TextStyle(color: ColorTable.white),)
+                                            ],
+                                          ),
+                                        );
+                                        Clipboard.setData(ClipboardData(text:userModel.blockAddress));
+                                      },
+                                      child: Image.asset(
+                                          'assets/images/ParesonalHome/copy.png',
+                                          width: 15,
+                                          height: 15),
+                                    )
                                   ],
-                                ),
-                                InkWell(
-                                  onTap: (){
-                                    operationTipsFigure(context,
-                                      title: Column(
-                                        children: [
-                                          Image.asset('assets/images/ParesonalHome/success.png',width: 30,height: 30,),
-                                          Text('复制成功',style: TextStyle(color: ColorTable.white),)
-                                        ],
-                                      ),
-                                    );
-                                    Clipboard.setData(const ClipboardData(text:'复制的内容'));
-                                  },
-                                  child: Image.asset(
-                                      'assets/images/ParesonalHome/copy.png',
-                                      width: 15,
-                                      height: 15),
-                                )
-                              ],
+                                );
+                              },
                             ),
                           )),
                     ),

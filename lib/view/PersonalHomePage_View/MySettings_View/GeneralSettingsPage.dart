@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../tool/ButtonCollection.dart';
 import '../../../tool/ClearCache.dart';
 import '../../../tool/ColorTable.dart';
@@ -13,6 +12,20 @@ class GeneralSettingsPage extends StatefulWidget {
 
 class _GeneralSettingsPageState extends State<GeneralSettingsPage> {
   bool informationNotification = false;
+  String cache='';
+  cacheHint(){
+    tooltipButton(
+        context,
+        title: '清理缓存 $cache',
+        content: '清理后所有缓存内容都会被清除',
+        sure: '清理',
+        color: const Color(0xff21232F),
+        onPressed: () {
+          ClearCache().loadCache(true);
+          cache='';
+          Navigator.of(context).pop();
+        });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,19 +40,14 @@ class _GeneralSettingsPageState extends State<GeneralSettingsPage> {
           children: [
             Container(
                 margin: const EdgeInsets.all(10),
-                child: personalHomePageButton('系统权限管理', () {})),
+                child: personalHomePageButton('系统权限管理', () async {
+
+                })),
             Container(
                 margin: const EdgeInsets.all(10),
-                child: personalHomePageButton('清理缓存', () {
-                  tooltipButton(
-                      context,
-                      title: '清理缓存',
-                      content: '清理后所有缓存内容都会被清除',
-                      sure: '清理',
-                      color: const Color(0xff21232F),
-                      onPressed: () {
-                        ClearCache().loadCache(true);
-                        Navigator.pop(context);});
+                child: personalHomePageButton('清理缓存', () async{
+                  cache= await ClearCache().loadCache(false);
+                  cacheHint();
                 })),
           ],
         ),

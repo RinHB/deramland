@@ -30,7 +30,7 @@ class _DestroyAccountPageState extends State<DestroyAccountPage> {
             ),
             Center(
               child: Text(
-                '申请注销Dream Land账号',
+                '申请注销梦境之谷账号',
                 style: TextStyle(color: Colors.white, fontSize: 23.sp),
               ),
             ),

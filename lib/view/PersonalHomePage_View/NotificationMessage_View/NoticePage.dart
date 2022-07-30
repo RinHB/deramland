@@ -19,7 +19,7 @@ class _NoticePageState extends State<NoticePage> {
           const SizedBox(height: 20),
           Container(
             margin: const EdgeInsets.all(12),
-            height: 160.h,
+            height: 140.h,
             decoration: const BoxDecoration(
                 color: Color(0xff2B1A3D),
                 borderRadius: BorderRadius.all(Radius.circular(20))),

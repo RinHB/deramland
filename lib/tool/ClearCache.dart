@@ -5,7 +5,7 @@ import 'package:path_provider/path_provider.dart';
 
 class ClearCache{
   ///加载缓存
-  Future<void> loadCache(bool state) async {
+  Future loadCache(bool state) async {
     try {
       Directory tempDir = await getTemporaryDirectory();
       double value = await _getTotalSizeOfFilesInDir(tempDir);
@@ -14,17 +14,16 @@ class ClearCache{
       //   print(file.path);
       // });
       String v= _renderSize(value.toDouble());
-      if (kDebugMode) {
-        print('临时目录大小:$v');
-      }
       if(state && v!='0.00B'){
         delDir(tempDir);
       }
+      return v;
     } catch (err) {
       if (kDebugMode) {
         print('报错');
         print(err);
       }
+      return '';
     }
   }
 

@@ -165,7 +165,7 @@ class _BookingCommodityPageState extends State<BookingCommodityPage> {
                           ),
                           Container(
                             width: 200.w,
-                            height: 110.h,
+                            height: 112.h,
                             decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                     topRight: Radius.circular(20),
@@ -226,7 +226,7 @@ class _BookingCommodityPageState extends State<BookingCommodityPage> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(height: 15.h),
+                                  const SizedBox(height: 15),
                                   Expanded(
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -234,7 +234,7 @@ class _BookingCommodityPageState extends State<BookingCommodityPage> {
                                         Text('￥29.00',
                                             style: TextStyle(
                                                 color: const Color(0xffFF0860),
-                                                fontSize: 20.sp)),
+                                                fontSize: 18.sp)),
                                         InkWell(
                                           onTap: () {
                                             Navigator.pushNamed(context, '/BookingCommodityDetailedPage');

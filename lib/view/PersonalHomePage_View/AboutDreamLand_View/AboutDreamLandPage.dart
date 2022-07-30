@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../tool/AccordingTheInformation.dart';
 import '../../../tool/ButtonCollection.dart';
@@ -24,10 +25,20 @@ class _AboutDreamLandPageState extends State<AboutDreamLandPage> {
         width: double.maxFinite,
         child: Column(
           children: [
-            SizedBox(height: 10),
-            Image.asset('assets/images/homePage/test.gif'),
-            SizedBox(height: 10),
-            Text('Dream Land',style: TextStyle(color: ColorTable.white),),
+            const SizedBox(height: 10),
+            Container(
+              width: 90.w,
+                height: 70.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                        width: 1, color: const Color(0xffffffff)),
+                  image:const DecorationImage(image:  AssetImage('assets/images/log/deramlandlog.png'),fit: BoxFit.cover)
+                ),
+            ),
+            const SizedBox(height: 10),
+            Text('梦境之谷',style: TextStyle(color: ColorTable.white,fontSize: 18.sp),),
+            const SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -35,12 +46,33 @@ class _AboutDreamLandPageState extends State<AboutDreamLandPage> {
               ),
               child: Column(
                 children: [
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Container(
                     margin: const EdgeInsets.all(10),
-                    child: personalHomePageButton('版本更新', () {
+                    child:InkWell(
+                        onTap: (){
 
-                    }),
+                        },
+                        child: Row(
+                          children: [
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            const Expanded(
+                                child: Text('版本更新',
+                                    style: TextStyle(color: Colors.white, fontSize: 15))),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 10),
+                              child: Text('已经是最新版本了',style: TextStyle(color: ColorTable.tipColor,)),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: Image.asset(
+                                  'assets/images/ParesonalHome/Component_8_Property1_right.png',
+                                  width: 10),
+                            )
+                          ],
+                        )),
                   ),
                   Container(margin: const EdgeInsets.only(left: 10,right: 15,top: 8),child: splitLineFigure()),
                   Container(

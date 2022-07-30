@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
-
 VerificationCodeLogins verificationCodeLoginFromJson(String str) => VerificationCodeLogins.fromJson(json.decode(str));
 
 String verificationCodeLoginToJson(VerificationCodeLogins data) => json.encode(data.toJson());
@@ -30,7 +28,7 @@ class VerificationCodeLogins{
   };
 }
 
-class UserBean with ChangeNotifier{
+class UserBean {
   UserBean({
     this.id,
     this.phone,
@@ -116,11 +114,5 @@ class UserBean with ChangeNotifier{
     "updateTime": updateTime,
     "updateUser": updateUser,
   };
-  void update(UserBean data){
-    nickName = data.nickName;
-    phone = data.phone;
-    avatar = data.avatar;
-    blockAddress =data.blockAddress;
-    notifyListeners();
-  }
+
 }

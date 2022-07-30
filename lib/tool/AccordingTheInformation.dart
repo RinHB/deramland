@@ -10,7 +10,7 @@ Widget headFigure() {
     children: [
       const SizedBox(height: 40),
       Image.asset('assets/images/log/test.gif', width: 175.w),
-      Text('欢迎来到DreamLand',
+      Text('欢迎来到梦境之谷',
           style: TextStyle(fontSize: 25.sp, color: Colors.white)),
       const Text('发现有趣的商品', style: TextStyle(color: Colors.white)),
     ],

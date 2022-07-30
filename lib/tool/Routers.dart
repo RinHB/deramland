@@ -15,12 +15,12 @@ import '../view/PersonalHomePage_View/CollectionRecord_View/CollectionRecordPage
 import '../view/PersonalHomePage_View/CollectionRecord_View/ConfirmGiftPage.dart';
 import '../view/PersonalHomePage_View/CollectionRecord_View/GiftObjectPage.dart';
 import '../view/PersonalHomePage_View/CollectionRecord_View/ReceiveAGiftPage.dart';
+import '../view/PersonalHomePage_View/CustomerService_view/CustomerServicePage.dart';
 import '../view/PersonalHomePage_View/MyOrder_View/MyOrderPage.dart';
 import '../view/PersonalHomePage_View/MyOrder_View/OrderDetailsPage.dart';
 import '../view/PersonalHomePage_View/MySettings_View/DestroyAccountPage.dart';
 import '../view/PersonalHomePage_View/MySettings_View/GeneralSettingsPage.dart';
 import '../view/PersonalHomePage_View/MySettings_View/MessageSettingsPage.dart';
-import '../view/PersonalHomePage_View/MySettings_View/MySettingsPage.dart';
 import '../view/PersonalHomePage_View/MySettings_View/PrivacySettingPage.dart';
 import '../view/PersonalHomePage_View/NotificationMessage_View/NotificationMessagePage.dart';
 import '../view/PersonalHomePage_View/OthersHomepage_View/OthersHomepagePage.dart';
@@ -70,6 +70,7 @@ class Routers{
     '/GiftObjectPage':(context,{Object? args}) =>const GiftObjectPage(),
     '/ConfirmGiftPage':(context,{Object? args}) =>const ConfirmGiftPage(),
     '/ReceiveAGiftPage':(context,{Object? args}) =>const ReceiveAGiftPage(),
+    '/CustomerServicePage':(context,{Object? args}) =>const CustomerServicePage(),
   };
 
   //监听route，类似于拦截器原理

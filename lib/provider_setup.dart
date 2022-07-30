@@ -1,9 +1,10 @@
 import 'package:provider/single_child_widget.dart';
-import 'entity/VerificationCodeLogin.dart';
 import 'package:provider/provider.dart';
 
+import 'model/user_model.dart';
+
 List<SingleChildStatelessWidget> providers =[
-  ChangeNotifierProvider<UserBean>(
-    create: (_) => UserBean(),
+  ChangeNotifierProvider<UserModel>(
+    create: (_) => UserModel(),
   ),
 ];
