@@ -83,7 +83,7 @@ class _InputVerificationCodeState extends State<InputVerificationCode> {
                                 icon: Image.asset('assets/images/log/Returnkey.png',width: 20.w,height: 20.h)
                             ),
                           ),
-                          Expanded(child: Image.asset('assets/images/log/3d图.png', width: 200.w,height: 200.h,)),
+                          Expanded(child: Image.asset('assets/images/log/test.gif', width: 200.w,height: 200.h,)),
                           const SizedBox(width: 25,)
                         ],
                       ),

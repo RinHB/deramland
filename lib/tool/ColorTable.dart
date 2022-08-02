@@ -8,4 +8,7 @@ class ColorTable{
   static Color tipColor = const Color(0xff77789C);
   static Color bokeh = const Color(0x54000000);
   static Color tooltipBackGroundColor = const Color(0xff21232F);
+
 }
+//客服界面Padding
+const kDefaultPadding = 20.0;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deramland/provider_setup.dart';
 import 'package:flutter_deramland/tool/Routers.dart';
+import 'package:flutter_deramland/view/staring_view/StartPage.dart';
 import 'package:flutter_deramland/view/staring_view/agreementView.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false, //去除Debug标识
-      home: AgreementView(),
+      home: const StarPage(),
       onGenerateRoute: _routers.getRoutes,
       theme: ThemeData(
           highlightColor: Colors.transparent,
