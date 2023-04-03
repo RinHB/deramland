@@ -25,8 +25,7 @@ class AgreementView extends StatelessWidget {
         child: Center(
           child: AlertDialog(
             buttonPadding: EdgeInsets.zero,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             title: const Center(child: Text('温 馨 提 示')),
             content: const Text(
                 '亲爱的用户，欢迎您来到Dream Land APP,根据国家 法律法规要求，您在使用应用前仔细阅读并同意 《使用协议》和《隐私协议》\n\n关于协议里的主要内容，我们在此向您说明：\n 1为了您可以正常使用功能，我们向您申请相册权限、地理位置权限等。\n2您可以在相关页面访问、更正、删除您的个人信息 并管理您的权利。\n3.您提供的所有信息，我们仅用于向你提供更好的服务，未经您的许可，我们不会将您的信息透露给第三方。'),

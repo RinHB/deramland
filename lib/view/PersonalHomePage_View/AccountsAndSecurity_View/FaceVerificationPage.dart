@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../tool/ButtonCollection.dart';
 import '../../../tool/ColorTable.dart';
 class FaceVerificationPage extends StatefulWidget {
   const FaceVerificationPage({Key? key}) : super(key: key);
@@ -17,7 +15,7 @@ class _FaceVerificationPageState extends State<FaceVerificationPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorTable.deepPurple,
-        title: Text('人脸验证'),
+        title: const Text('人脸验证'),
       ),
       body: Container(
         width: double.maxFinite,
@@ -25,7 +23,7 @@ class _FaceVerificationPageState extends State<FaceVerificationPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(margin: EdgeInsets.all(20),child: Text('人脸识别功能验证你的身份信息,请确保是run本人操作',style: TextStyle(color: ColorTable.white,fontSize: 20.sp),)),
+            Container(margin: const EdgeInsets.all(20),child: Text('人脸识别功能验证你的身份信息,请确保是run本人操作',style: TextStyle(color: ColorTable.white,fontSize: 20.sp),)),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,

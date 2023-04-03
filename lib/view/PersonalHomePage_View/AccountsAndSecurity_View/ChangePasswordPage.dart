@@ -86,7 +86,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                             data: Theme.of(context).copyWith(
                               canvasColor: Colors.black45,
                             ),
-                            child: Container(width:55.h,child: Text('密码',style: TextStyle(color: ColorTable.white),)),
+                            child: Text('密码',style: TextStyle(color: ColorTable.white)),
                           ),
                         ),
                       ),

@@ -1,5 +1,4 @@
-import 'dart:io';
-import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_deramland/entity/Message.dart';
 import 'package:flutter_deramland/tool/ColorTable.dart';
@@ -40,6 +39,58 @@ class _CustomerServicePageState extends State<CustomerServicePage> {
         isSentByMe: true
     ),
   ].reversed.toList();
+  // _emoJiList() {
+  //   if (!emoji || _commentFocus.hasFocus) {
+  //     return Container();
+  //   } else {
+  //     return FutureBuilder(
+  //         future: DefaultAssetBundle.of(context)
+  //             .loadString("assets/emoji_list.json"),
+  //         builder: (context, snapshot) {
+  //           if (snapshot.hasData) {
+  //             List<dynamic> data = json.decode(snapshot.data.toString());
+  //             return Stack(
+  //               children: <Widget>[
+  //                 Container(
+  //                   height: 200,
+  //                   padding:
+  //                   const EdgeInsets.only(left: 5, top: 5, right: 5, bottom: 5),
+  //                   color: Colors.white,
+  //                   child: GridView.custom(
+  //                     padding: EdgeInsets.all(3),
+  //                     shrinkWrap: true,
+  //                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+  //                       crossAxisCount: 6,
+  //                       mainAxisSpacing: 0.5,
+  //                       crossAxisSpacing: 6.0,
+  //                     ),
+  //                     childrenDelegate: SliverChildBuilderDelegate(
+  //                           (context, index) {
+  //                         return GestureDetector(
+  //                           onTap: () {
+  //                             String inputString =_input.text.toString();
+  //                             inputString = inputString + String.fromCharCode(data[index]["unicode"]);
+  //                             setState(() {});
+  //                           },
+  //                           child: Center(
+  //                             child: Text(
+  //                               String.fromCharCode(data[index]["unicode"]),
+  //                               style: TextStyle(fontSize: 33),
+  //                             ),
+  //                           ),
+  //                         );
+  //                       },
+  //                       childCount: data.length,
+  //                     ),
+  //                   ),
+  //                 ),
+  //               ],
+  //             );
+  //           }
+  //           return const CircularProgressIndicator();
+  //         });
+  //   }
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,164 +98,137 @@ class _CustomerServicePageState extends State<CustomerServicePage> {
         title: const Text('客服'),
         backgroundColor: ColorTable.deepPurple,
       ),
-      body: Container(
-          color: ColorTable.deepPurple,
-          child: Column(
-            children: [
-              Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                    child: ListView.builder(
-                        itemCount:messages.length ,
-                        itemBuilder:(context,index)=>Messages(message: messages[index],)
-                    ),
-                  )
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: ColorTable.boxBackGroundPurple,
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin:
-                      const EdgeInsets.only(left: 10, right: 10, top: 5,bottom: 10),
-                      decoration: const BoxDecoration(
-                        color: Color(0xFF0F122A),
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
+      body: GestureDetector(
+        onTap: (){
+          // 点击空白页面关闭键盘
+          blankNode.unfocus();
+          setState(() {
+            emoji=true;
+          });
+        },
+        child: Container(
+            color: ColorTable.deepPurple,
+            child: Column(
+              children: [
+                Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                      child: ListView.builder(
+                          itemCount:messages.length ,
+                          itemBuilder:(context,index)=>Messages(message: messages[index],)
                       ),
-                      width: 240.w,
-                      child: Container(
-                        margin: const EdgeInsets.only(left: 5),
-                        child: TextField(
-                            focusNode: blankNode,
-                            onTap: (){
-                              setState(() {
-                                emoji=true;
-                              });
-                            },
-                            onChanged: (v){
-                              if(sendStatus && _input.text.isNotEmpty){
+                    )
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: ColorTable.boxBackGroundPurple,
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin:
+                        const EdgeInsets.only(left: 10, right: 10, top: 5,bottom: 10),
+                        decoration: const BoxDecoration(
+                          color: Color(0xFF0F122A),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        width: 240.w,
+                        child: Container(
+                          margin: const EdgeInsets.only(left: 5),
+                          child: TextField(
+                              focusNode: blankNode,
+                              onTap: (){
                                 setState(() {
-                                  sendStatus=!sendStatus;
-                                });
-                              }else if(!sendStatus && _input.text.isEmpty){
-                                setState(() {
-                                  sendStatus=!sendStatus;
                                   emoji=true;
                                 });
-                              }
-                            },
-                            controller: _input,
-                            style: const TextStyle(color: Colors.white),
-                            decoration: const InputDecoration(
-                                border: InputBorder.none,
-                                )),
+                              },
+                              onChanged: (v){
+                                if(sendStatus && _input.text.isNotEmpty){
+                                  setState(() {
+                                    sendStatus=!sendStatus;
+                                  });
+                                }else if(!sendStatus && _input.text.isEmpty){
+                                  setState(() {
+                                    emoji=true;
+                                    sendStatus=!sendStatus;
+                                  });
+                                }
+                              },
+                              controller: _input,
+                              style: const TextStyle(color: Colors.white),
+                              decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  )),
+                        ),
                       ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 15),
-                      child: InkWell(
-                        onTap: (){
-                          setState(() {
-                            emoji=!emoji;
-                          });
-                          blankNode.unfocus();
-                          blankNode.canRequestFocus=false;
-                        },
-                        child: Image.asset('assets/images/ParesonalHome/expression.png',width: 30,height: 30,),
-                      ),
-                    ),
-                    sendStatus?const SizedBox(width: 15,):Container(width: 5,),
-                    sendStatus? Container(
-                      margin: const EdgeInsets.only(top: 15),
-                      child: InkWell(
-                        onTap: (){},
-                        child: Image.asset('assets/images/ParesonalHome/addTo.png',width: 30,height: 30,),
-                      ),
-                    ):
-                    Container(
-                      margin: const EdgeInsets.only(top: 5),
-                      child: ElevatedButton(
-                          onPressed: () {
-                            final message = Message(
-                                text: _input.text.toString(),
-                                nickName: '',
-                                isSentByMe: true,
-                                messageType: MessageType.text,
-                                messageStatus: MessageStatus.notSent);
-                            _input.text='';
-                            FocusScope.of(context).requestFocus(FocusNode());//关闭键盘
+                      Container(
+                        margin: const EdgeInsets.only(top: 15),
+                        child: InkWell(
+                          onTap: (){
                             setState(() {
-                              sendStatus=!sendStatus;
-                              emoji=true;
-                              messages.add(message);
+                              emoji=!emoji;
                             });
+                            blankNode.unfocus();
+                            blankNode.canRequestFocus=false;
                           },
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateColor.resolveWith(
-                                      (states) => Colors.pinkAccent),
-                              shape: MaterialStateProperty.all(
-                                  const StadiumBorder(
-                                      side: BorderSide(
-                                        //设置 界面效果
-                                        style: BorderStyle.solid,
-                                      )))),
-                          child: const Text('发送')),
-                    ),
-                  ],
-                ),
-              ),
-              Offstage(
-                offstage: emoji,
-                child: SizedBox(
-                  height: 240,
-                  child: EmojiPicker(
-                    onEmojiSelected: (category, emoji) {
-                      _input.text =_input.text+emoji.emoji;
-                      setState(() {
-                        if(sendStatus){
-                          sendStatus=!sendStatus;
-                        }
-                      });
-                    },
-                    onBackspacePressed: () {
-                      _input.text='';
-                    },
-                    config: Config(
-                      columns: 8,
-                      emojiSizeMax: 32 * (Platform.isIOS ? 1.30 : 1.0), // Issue: https://github.com/flutter/flutter/issues/28894
-                      verticalSpacing: 0,
-                      horizontalSpacing: 0,
-                      gridPadding: EdgeInsets.zero,
-                      initCategory: Category.RECENT,
-                      bgColor: const Color(0xFFF2F2F2),
-                      indicatorColor: Colors.blue,
-                      iconColor: Colors.grey,
-                      iconColorSelected: Colors.blue,
-                      progressIndicatorColor: Colors.blue,
-                      backspaceColor: Colors.blue,
-                      skinToneDialogBgColor: Colors.white,
-                      skinToneIndicatorColor: Colors.grey,
-                      enableSkinTones: true,
-                      showRecentsTab: true,
-                      recentsLimit: 28,
-                      noRecents: const Text(
-                        'No Recents',
-                        style: TextStyle(fontSize: 20, color: Colors.black26),
-                        textAlign: TextAlign.center,
+                          child: Image.asset('assets/images/ParesonalHome/expression.png',width: 30,height: 30,),
+                        ),
                       ),
-                      tabIndicatorAnimDuration: kTabScrollDuration,
-                      categoryIcons: const CategoryIcons(),
-                      buttonMode: ButtonMode.MATERIAL,
-                    ),
+                      sendStatus?const SizedBox(width: 15,):Container(width: 5,),
+                      sendStatus? Container(
+                        margin: const EdgeInsets.only(top: 15),
+                        child: InkWell(
+                          onTap: (){},
+                          child: Image.asset('assets/images/ParesonalHome/addTo.png',width: 30,height: 30,),
+                        ),
+                      ):
+                      Container(
+                        margin: const EdgeInsets.only(top: 5),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              final message = Message(
+                                  text: _input.text.toString(),
+                                  nickName: '',
+                                  isSentByMe: true,
+                                  messageType: MessageType.text,
+                                  messageStatus: MessageStatus.notSent);
+                              _input.text='';
+                              FocusScope.of(context).requestFocus(FocusNode());//关闭键盘
+                              setState(() {
+                                sendStatus=!sendStatus;
+                                emoji=true;
+                                messages.add(message);
+                              });
+                            },
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateColor.resolveWith(
+                                        (states) => Colors.pinkAccent),
+                                shape: MaterialStateProperty.all(
+                                    const StadiumBorder(
+                                        side: BorderSide(
+                                          //设置 界面效果
+                                          style: BorderStyle.solid,
+                                        )))),
+                            child: const Text('发送')),
+                      ),
+                    ],
                   ),
                 ),
-              )
-            ],
+                AnimatedContainer(
+                  duration:const Duration(seconds: 1),
+                  curve: Curves.easeInOut,
+                  child: Offstage(
+                    offstage: emoji,
+                    child: const SizedBox(
+                      height: 300,
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
+      ),
     );
   }
 }

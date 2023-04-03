@@ -1,3 +1,0 @@
-git add .
-git commit -m "发现有趣商品  提交于`date "+%Y-%m-%d"`"
-git push fxyqsp master

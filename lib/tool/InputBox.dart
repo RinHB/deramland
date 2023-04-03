@@ -84,7 +84,10 @@ Widget changePasswordInputBox(String hint,{Widget? phoneSelectBox,TextEditingCon
                     )
                 ),
                 prefixIcon:phoneSelectBox,
-
+              prefixIconConstraints: BoxConstraints(
+                minHeight: 100,
+                minWidth: 80,
+              ),
             ),
           )
       ),
